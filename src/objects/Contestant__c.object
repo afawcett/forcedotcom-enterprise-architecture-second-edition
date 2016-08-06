@@ -44,17 +44,20 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <deprecated>false</deprecated>
     <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>DNF__c</fullName>
         <defaultValue>false</defaultValue>
-        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>DNF</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -64,7 +67,6 @@
     <fields>
         <fullName>Driver__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
-        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Driver</label>
         <lookupFilter>
@@ -124,7 +126,6 @@
     </fields>
     <fields>
         <fullName>Race__c</fullName>
-        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Race</label>
         <referenceTo>Race__c</referenceTo>

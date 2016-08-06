@@ -21,7 +21,16 @@
         <members>Race__c.Season__c</members>
         <members>Race__c.TotalDNFs__c</members>
         <members>Season__c.Year__c</members>
+        <members>TrackLapRecord__mdt.DriverName__c</members>
+        <members>TrackLapRecord__mdt.Time__c</members>
+        <members>TrackLapRecord__mdt.Year__c</members>
         <name>CustomField</name>
+    </types>
+    <types>
+        <members>TrackLapRecord.Circuit_Spa_Francorchamps</members>
+        <members>TrackLapRecord.Nurburgring</members>
+        <members>TrackLapRecord.Silverstone_Circuit</members>
+        <name>CustomMetadata</name>
     </types>
     <types>
         <members>Contestant__c</members>
@@ -29,6 +38,7 @@
         <members>RaceData__c</members>
         <members>Race__c</members>
         <members>Season__c</members>
+        <members>TrackLapRecord__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -44,6 +54,7 @@
         <members>RaceData__c-Race Data Layout</members>
         <members>Race__c-Race Layout</members>
         <members>Season__c-Season Layout</members>
+        <members>TrackLapRecord__mdt-Track Lap Record Layout</members>
         <name>Layout</name>
     </types>
     <types>
