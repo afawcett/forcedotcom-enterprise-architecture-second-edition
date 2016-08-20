@@ -1,4 +1,4 @@
-public class RaceService {
+public with sharing class RaceService {
     
 	public static Map<Id, List<ProvisionalResult>> calculateProvisionResults(Set<Id> raceIds) {
 		return service().calculateProvisionResults(raceIds);
