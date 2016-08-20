@@ -1,4 +1,4 @@
-public class SeasonService {
+public with sharing class SeasonService {
     
 	public static void issueNewsLetterCurrentSeason() {
 		throw new SeasonServiceException('Not implemented');

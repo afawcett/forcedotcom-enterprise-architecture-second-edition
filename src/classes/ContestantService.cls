@@ -1,4 +1,4 @@
-public class ContestantService {
+public with sharing class ContestantService {
        
 	public static void awardChampionshipPoints(Set<Id> contestantIds) {
 	    
