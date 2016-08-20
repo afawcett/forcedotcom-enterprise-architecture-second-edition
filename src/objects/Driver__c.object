@@ -44,20 +44,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <enableActivities>false</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
-    <enableSearch>false</enableSearch>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Active</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -65,7 +62,20 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>DriverId__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Driver Id</label>
+        <length>32</length>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Nationality__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Nationality</label>
         <picklist>
@@ -98,6 +108,7 @@
     <fields>
         <fullName>TwitterHandle__c</fullName>
         <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
         <externalId>true</externalId>
         <label>Twitter Handle</label>
         <length>15</length>

@@ -44,20 +44,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <enableActivities>false</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>FastestLapBy__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Fastest Lap By</label>
         <referenceTo>Driver__c</referenceTo>
@@ -70,6 +67,7 @@
     </fields>
     <fields>
         <fullName>PollPositionLapTime__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Poll Position Lap Time</label>
         <summarizedField>Contestant__c.Qualification1LapTime__c</summarizedField>
@@ -80,6 +78,7 @@
     </fields>
     <fields>
         <fullName>Season__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Season</label>
         <referenceTo>Season__c</referenceTo>
@@ -94,6 +93,7 @@
     </fields>
     <fields>
         <fullName>TotalDNFs__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Total DNFs</label>
         <summaryFilterItems>

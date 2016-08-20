@@ -10,12 +10,27 @@
     </applicationVisibilities>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contestant__c.ChampionshipPoints__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contestant__c.DNF__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contestant__c.DriverRace__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contestant__c.Driver__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contestant__c.GridPosition__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -31,6 +46,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contestant__c.Qualification3LapTime__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contestant__c.RacePosition__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contestant__c.RaceTime__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -67,6 +92,11 @@
         <editable>false</editable>
         <field>Race__c.TotalDNFs__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Season__c.Current__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <label>FormulaForce - Race Analytics</label>
     <objectPermissions>
