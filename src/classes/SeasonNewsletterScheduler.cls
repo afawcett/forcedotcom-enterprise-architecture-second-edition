@@ -1,13 +1,10 @@
-global class SeasonNewsletterScheduler implements Schedulable 
-{
-	global void execute(SchedulableContext sc) 
-	{
-		try
-		{
+global class SeasonNewsletterScheduler implements Schedulable {
+    
+	global void execute(SchedulableContext sc) {
+		try {
  			SeasonService.issueNewsLetterCurrentSeason();
 		}
-		catch (Exception e)
-		{
+		catch (Exception e) {
 			Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
 			mail.setTargetObjectId(UserInfo.getUserId());
 			mail.setSenderDisplayName(UserInfo.getUserName());

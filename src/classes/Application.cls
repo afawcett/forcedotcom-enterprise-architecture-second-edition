@@ -1,29 +1,54 @@
-public class Application 
-{
+public class Application {
+    
 	// Configure and create the UnitOfWorkFactory for this Application
-	public static final UnitOfWorkFactory UnitOfWork = 
-		new UnitOfWorkFactory(
+	public static final fflib_Application.UnitOfWorkFactory UnitOfWork = 
+		new fflib_Application.UnitOfWorkFactory(
 				new List<SObjectType> { 
 					Driver__c.SObjectType, 
 					Season__c.SObjectType, 
 				  	Race__c.SObjectType, 
-				  	Contestant__c.SObjectType });	
-
-	/**
-	 * Class implements a Unit of Work factory
-	 **/
-	public class UnitOfWorkFactory
-	{
-		private List<SObjectType> objectTypes;
-
-		private UnitOfWorkFactory(List<SObjectType> objectTypes)
-		{
-			this.objectTypes = objectTypes;
-		}
-
-		public fflib_SObjectUnitOfWork newInstance()
-		{
-			return new fflib_SObjectUnitOfWork(objectTypes);
-		}
-	}
+				  	Contestant__c.SObjectType });
+				  	
+    // Configure and create the ServiceFactory for this Application
+    public static final fflib_Application.ServiceFactory Service = 
+        new Application.ServiceFactory( 
+            new Map<Type, Type> {
+                    IRaceService.class => RaceServiceImpl.class });
+                    
+    // Configure and create the SelectorFactory for this Application
+    public static final fflib_Application.SelectorFactory Selector = 
+        new fflib_Application.SelectorFactory(
+            new Map<SObjectType, Type> {
+                // Opportunity.SObjectType => OpportunitiesSelector.class,
+                }); 
+           
+    // Customised Service factory to support developer overrides via Custom Metadata (see Chapter 5)      
+    private class ServiceFactory extends fflib_Application.ServiceFactory {
+        
+        private Map<String, String> servicesByClassName = new Map<String, String>();
+        
+        public ServiceFactory(Map<Type, Type> serviceInterfaceTypeByServiceImplType) {
+            super(serviceInterfaceTypeByServiceImplType);
+            
+            // Map of overriden services defined by the developer in this org
+            for(Service__mdt serviceOverride : 
+                    [select DeveloperName, NamespacePrefix, ApexClass__c from Service__mdt]) {
+                servicesByClassName.put(
+                    serviceOverride.NamespacePrefix + '.' + serviceOverride.DeveloperName, 
+                    serviceOverride.ApexClass__c);                
+            }
+        }
+        
+        public override Object newInstance(Type serviceInterfaceType) {
+            
+            // Has the developer overriden the Service implementaiton in their org?
+            if(!Test.isRunningTest() && servicesByClassName.containsKey(serviceInterfaceType.getName())) {
+                String overridenServiceImpl = servicesByClassName.get(serviceInterfaceType.getName());
+                return Type.forName(overridenServiceImpl).newInstance();
+            }
+            
+            // Default Service Factory returns mocked or registered default implementation
+            return super.newInstance(serviceInterfaceType);    
+        }        
+    }
 }

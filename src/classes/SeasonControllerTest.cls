@@ -1,8 +1,7 @@
 @isTest
-private class SeasonControllerTest 
-{	
-	@isTest static void testNewsletter()
-	{
+private class SeasonControllerTest {
+    	
+	@isTest static void testNewsletter() {
 		try {
 			new SeasonController(null).sendNewsletter();
 			System.assert(false);

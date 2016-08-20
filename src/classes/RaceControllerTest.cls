@@ -1,8 +1,7 @@
 @isTest
-private class RaceControllerTest 
-{	
-	@isTest static void testAwardPoints() 
-	{
+private class RaceControllerTest {
+    	
+	@isTest static void testAwardPoints() {
 		SeasonService.importSeasons(TestData.SEASONSDATA);
 		new RaceController(
 			new ApexPages.StandardController(

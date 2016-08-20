@@ -88,7 +88,7 @@ public class fflib_Application
 	/**
 	 * Simple Service Factory implementaiton
 	 **/
-	public class ServiceFactory
+	public virtual class ServiceFactory
 	{
 		private Map<Type, Type> m_serviceInterfaceTypeByServiceImplType;
 
@@ -116,7 +116,7 @@ public class fflib_Application
 		 * @param serviceInterfaceType Apex interface type
 		 * @exception Is thrown if there is no registered Apex class for the interface type
 		 **/
-		public Object newInstance(Type serviceInterfaceType)
+		public virtual Object newInstance(Type serviceInterfaceType)
 		{
 			// Mock implementation?
 			if(m_serviceInterfaceTypeByMockService.containsKey(serviceInterfaceType))
@@ -139,7 +139,7 @@ public class fflib_Application
 	/**
 	 * Class implements a Selector class factory
 	 **/
-	public class SelectorFactory
+	public virtual class SelectorFactory
 	{
 		private Map<SObjectType, Type> m_sObjectBySelectorType;
 		private Map<SObjectType, fflib_ISObjectSelector> m_sObjectByMockSelector;
@@ -163,7 +163,7 @@ public class fflib_Application
 		 *
 		 * @param sObjectType An SObjectType token, e.g. Account.SObjectType
 		 **/
-		public fflib_ISObjectSelector newInstance(SObjectType sObjectType)
+		public virtual fflib_ISObjectSelector newInstance(SObjectType sObjectType)
 		{
 			// Mock implementation?
 			if(m_sObjectByMockSelector.containsKey(sObjectType))
@@ -236,7 +236,7 @@ public class fflib_Application
 	/**
 	 * Class implements a Domain class factory
 	 **/
-	public class DomainFactory 
+	public virtual class DomainFactory 
 	{
 		private fflib_Application.SelectorFactory m_selectorFactory;
 
@@ -269,10 +269,9 @@ public class fflib_Application
 		 * @param recordIds A list of Id's of the same type
 		 * @exception Throws an exception via the Selector Factory if the Ids are not all of the same SObjectType
 		 **/
-		public fflib_ISObjectDomain newInstance(Set<Id> recordIds)
+		public virtual fflib_ISObjectDomain newInstance(Set<Id> recordIds)
 		{
 			return newInstance(m_selectorFactory.selectById(recordIds));
-
 		}	
 
 		/**
@@ -283,7 +282,7 @@ public class fflib_Application
 		 * @exception Throws an exception if the SObjectType cannot be determined from the list 
 		 *              or the constructor for Domain class was not registered for the SOBjectType
 		 **/
-		public fflib_ISObjectDomain newInstance(List<SObject> records)
+		public virtual fflib_ISObjectDomain newInstance(List<SObject> records)
 		{
 			SObjectType domainSObjectType = records.getSObjectType();
 			if(domainSObjectType==null)
@@ -315,7 +314,7 @@ public class fflib_Application
 		 * @remark Will support List<SObject> but all records in the list will be assumed to be of
 		 *         the type specified in sObjectType
 		 **/
-		public fflib_ISObjectDomain newInstance(List<SObject> records, SObjectType domainSObjectType)
+		public virtual fflib_ISObjectDomain newInstance(List<SObject> records, SObjectType domainSObjectType)
 		{
 			if(domainSObjectType==null)
 				throw new DeveloperException('Must specify sObjectType');

@@ -2,6 +2,7 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
         <fullName>DriverName__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Driver Name</label>
@@ -12,6 +13,7 @@
     </fields>
     <fields>
         <fullName>Time__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Time</label>
@@ -23,6 +25,7 @@
     </fields>
     <fields>
         <fullName>Year__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Year</label>

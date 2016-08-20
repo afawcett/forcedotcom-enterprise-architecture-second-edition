@@ -1,20 +1,18 @@
-public class RacesSelector extends fflib_SObjectSelector
-{
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+public class RacesSelector extends fflib_SObjectSelector {
+    
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Race__c.Id,
 			Race__c.Name
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Race__c.sObjectType;
 	}
 
-	public List<Race__c> selectByIdWithContestants(Set<Id> raceIds)
-	{
+	public List<Race__c> selectByIdWithContestants(Set<Id> raceIds) {
+	    
 		assertIsAccessible();
 
 		ContestantsSelector contestantSelector = new ContestantsSelector();

@@ -1,7 +1,6 @@
-public class ContestantsSelector extends fflib_SObjectSelector
-{
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+public class ContestantsSelector extends fflib_SObjectSelector {
+    
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Contestant__c.Id,
 			Contestant__c.Name,
@@ -19,13 +18,11 @@ public class ContestantsSelector extends fflib_SObjectSelector
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Contestant__c.sObjectType;
 	}
 
-	public List<Contestant__c> selectById(Set<Id> ids)
-	{
+	public List<Contestant__c> selectById(Set<Id> ids) {
 		return (List<Contestant__c>) super.selectSObjectsById(ids);
 	}
 }

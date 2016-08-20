@@ -1,8 +1,8 @@
-public class ContestantService 
-{
-	public static void awardChampionshipPoints(Set<Id> contestantIds)
-	{
-		fflib_SObjectUnitOfWork uow = Application.UnitOfWork.newInstance();
+public class ContestantService {
+       
+	public static void awardChampionshipPoints(Set<Id> contestantIds) {
+	    
+		fflib_ISObjectUnitOfWork uow = Application.UnitOfWork.newInstance();
 
 		// Apply championship points to selected contestants		
 		awardChampionshipPoints(uow, new ContestantsSelector().selectById(contestantIds));
@@ -10,34 +10,30 @@ public class ContestantService
 		uow.commitWork();
 	}
 
-	public static void awardChampionshipPoints(fflib_SObjectUnitOfWork uow, List<Contestant__c> contestants)
-	{
-		// Apply championship points to given contestants		
-		for(Contestant__c contestant : contestants)
-		{
+	public static void awardChampionshipPoints(fflib_ISObjectUnitOfWork uow, List<Contestant__c> contestants) {
+	    
+		// Apply championship points to given contestants
+		Map<Integer, ChampionshipPoint__mdt> pointsByTrackPosition = 
+		  new ChampionshipPointsSelector().selectAllByTrackPosition();		
+		for(Contestant__c contestant : contestants) {
 			// Determine points to award for the given position
-			/**
-			ChampionshipPoints__c pointsForPosition = 
-				ChampionshipPoints__c.getInstance(String.valueOf(contestant.RacePosition__c));
-			if(pointsForPosition!=null)
-			{
-				Apply points and register for udpate with uow
+			ChampionshipPoint__mdt pointsForPosition = 
+                pointsByTrackPosition.get(Integer.valueOf(contestant.RacePosition__c));
+			if(pointsForPosition!=null) {
+				// Apply points and register for udpate with uow
 				contestant.ChampionshipPoints__c = pointsForPosition.PointsAwarded__c;
 				uow.registerDirty(contestant);
 			}
-			**/
 		}		
 	}
 
-	public static void retireFromRace(List<RaceRetirement> retirements)
-	{
+	public static void retireFromRace(List<RaceRetirement> retirements) {
 		throw new ContestantServiceException('Not implemented');
 	}
 
 	public class ContestantServiceException extends Exception {} 
 
-	public class RaceRetirement
-	{
+	public class RaceRetirement {
 		public Id contestantId;
 		public String reason;
 	}	

@@ -999,16 +999,6 @@ public class fflib_MatcherDefinitionsTest
 	}
 
 	@isTest
-	private static void whenIsBlankWithMatchesShouldReturnCorrectResults()
-	{
-		fflib_IMatcher matcher = new fflib_MatcherDefinitions.StringIsBlank();
-		System.assert(!matcher.matches(7));
-		System.assert(!matcher.matches('bob'));
-		System.assert(matcher.matches(null));
-		System.assert(matcher.matches(''));
-	}
-
-	@isTest
 	private static void whenIsNotBlankWithMatchesShouldReturnCorrectResults()
 	{
 		fflib_IMatcher matcher = new fflib_MatcherDefinitions.StringIsNotBlank();

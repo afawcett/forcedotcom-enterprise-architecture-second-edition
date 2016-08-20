@@ -1,16 +1,14 @@
 @isTest
-private class ContestantServiceTest 
-{	
-	@isTest static void testAwardPoints() 
-	{
+private class ContestantServiceTest {
+    	
+	@isTest static void testAwardPoints() {
+	    
 		SeasonService.importSeasons(TestData.SEASONSDATA);
-		// insert new ChampionshipPoints__c(Name = '1', PointsAwarded__c = 25);			
 		ContestantService.awardChampionshipPoints(
 			new Map<Id, SObject>([select Id from Contestant__c]).keySet());
 	}
 
-	@isTest static void testTemporary()
-	{
+	@isTest static void testTemporary() {
 		try {
 			ContestantService.retireFromRace(null);
 			System.assert(false);

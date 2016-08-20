@@ -1,5 +1,5 @@
-public class TestData 
-{
+public class TestData {
+    
 	public static final String SEASONSDATA = 
 			'{' +
 				'"drivers" : [ ' +
