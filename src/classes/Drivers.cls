@@ -1,20 +1,15 @@
-public class Drivers extends fflib_SObjectDomain 
-	implements ComplianceService.ICompliant
-{
-	public Drivers(List<Driver__c> drivers) 
-	{
+public class Drivers extends fflib_SObjectDomain implements ComplianceService.ICompliant {
+    
+	public Drivers(List<Driver__c> drivers) {
 		super(drivers);
 	}
 
 	/**
 	 * Applies defaults when creating new Driver records
 	 **/
-	public override void onApplyDefaults()
-	{
-		for(Driver__c driver : (List<Driver__c>) Records)
-		{
-			if(driver.ShortName__c == null)
-			{
+	public override void onApplyDefaults() {
+		for(Driver__c driver : (List<Driver__c>) Records) {
+			if(driver.ShortName__c == null) {
 				// Upper case first three letters of drivers last name
 				String lastName = driver.Name.substringAfterLast(' ');
 				driver.ShortName__c = lastName.left(3).toUpperCase();
@@ -25,11 +20,9 @@ public class Drivers extends fflib_SObjectDomain
 	/**
 	 * Checks the Driver records for compliance with the latest rules
 	 **/
-	public List<ComplianceService.VerifyResult> verifyCompliance()
-	{
+	public List<ComplianceService.VerifyResult> verifyCompliance() {
 		List<ComplianceService.VerifyResult> compliances = new List<ComplianceService.VerifyResult>();
-		for(Driver__c driver : (List<Driver__c>) Records)
-		{
+		for(Driver__c driver : (List<Driver__c>) Records) {
 			// Check FIA Super License compliance
 			ComplianceService.VerifyResult license = new ComplianceService.VerifyResult();
 			license.ComplianceCode = '4.1';
@@ -41,10 +34,8 @@ public class Drivers extends fflib_SObjectDomain
 		return compliances;		
 	}
 
-	public class Constructor implements fflib_SObjectDomain.IConstructable
-	{
-		public fflib_SObjectDomain construct(List<SObject> sObjectList)
-		{
+	public class Constructor implements fflib_SObjectDomain.IConstructable {
+		public fflib_SObjectDomain construct(List<SObject> sObjectList) {
 			return new Drivers(sObjectList);
 		}
 	}	

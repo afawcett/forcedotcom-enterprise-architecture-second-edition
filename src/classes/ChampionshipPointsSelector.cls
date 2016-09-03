@@ -1,7 +1,6 @@
 public class ChampionshipPointsSelector extends fflib_SObjectSelector {
     
-    public List<Schema.SObjectField> getSObjectFieldList()
-    {
+    public List<Schema.SObjectField> getSObjectFieldList() {
         return new List<Schema.SObjectField> {
             ChampionshipPoint__mdt.Id,
             ChampionshipPoint__mdt.DeveloperName,
@@ -9,8 +8,7 @@ public class ChampionshipPointsSelector extends fflib_SObjectSelector {
         };
     }
 
-    public Schema.SObjectType getSObjectType()
-    {
+    public Schema.SObjectType getSObjectType() {
         return ChampionshipPoint__mdt.sObjectType;
     }
     

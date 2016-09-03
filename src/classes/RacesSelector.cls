@@ -12,8 +12,7 @@ public class RacesSelector extends fflib_SObjectSelector {
 		return Race__c.sObjectType;
 	}
 
-	public List<Race__c> selectById(Set<Id> raceIds)
-	{
+	public List<Race__c> selectById(Set<Id> raceIds) {
 		return (List<Race__c>) selectSObjectsById(raceIds);
 	}
 

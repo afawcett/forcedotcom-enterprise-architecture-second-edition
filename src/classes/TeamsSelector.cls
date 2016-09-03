@@ -1,7 +1,6 @@
-public class TeamsSelector extends fflib_SObjectSelector
-{
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+public class TeamsSelector extends fflib_SObjectSelector {
+	
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Team__c.Id,
 			Team__c.Name,
@@ -9,8 +8,7 @@ public class TeamsSelector extends fflib_SObjectSelector
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Team__c.sObjectType;
 	}
 }

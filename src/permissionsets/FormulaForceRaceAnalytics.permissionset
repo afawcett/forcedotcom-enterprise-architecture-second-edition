@@ -133,6 +133,7 @@
         <field>Team__c.TestingDistance__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
     <label>FormulaForce - Race Analytics</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>

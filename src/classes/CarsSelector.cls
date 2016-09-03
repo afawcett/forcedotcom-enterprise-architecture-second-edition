@@ -1,7 +1,6 @@
-public class CarsSelector extends fflib_SObjectSelector
+public class CarsSelector extends fflib_SObjectSelector 
 {
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Car__c.Id,
 			Car__c.Name,
@@ -9,8 +8,7 @@ public class CarsSelector extends fflib_SObjectSelector
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Car__c.sObjectType;
 	}	
 }

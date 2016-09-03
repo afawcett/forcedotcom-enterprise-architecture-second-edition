@@ -1,16 +1,12 @@
-public class Cars extends fflib_SObjectDomain
-	implements ComplianceService.ICompliant
-{
-	public Cars(List<Car__c> cars) 
-	{
+public class Cars extends fflib_SObjectDomain implements ComplianceService.ICompliant {
+    
+	public Cars(List<Car__c> cars) {
 		super(cars);
 	}
 
-	public List<ComplianceService.VerifyResult> verifyCompliance()
-	{
+	public List<ComplianceService.VerifyResult> verifyCompliance() {
 		List<ComplianceService.VerifyResult> compliances = new List<ComplianceService.VerifyResult>();
-		for(Car__c car : (List<Car__c>) Records)
-		{
+		for(Car__c car : (List<Car__c>) Records) {
 			// Check weight compliance
 			ComplianceService.VerifyResult license = new ComplianceService.VerifyResult();
 			license.ComplianceCode = '4.1';
@@ -19,14 +15,12 @@ public class Cars extends fflib_SObjectDomain
 			license.failureReason = license.passed ? null : 'Car must not be less than 691kg.';
 			compliances.add(license);
 		}
-		return compliances;		
+		return compliances;
 	}
 
-	public class Constructor implements fflib_SObjectDomain.IConstructable
-	{
-		public fflib_SObjectDomain construct(List<SObject> sObjectList)
-		{
+	public class Constructor implements fflib_SObjectDomain.IConstructable {
+		public fflib_SObjectDomain construct(List<SObject> sObjectList) {
 			return new Cars(sObjectList);
 		}
-	}		
+	}
 }

@@ -1,9 +1,7 @@
 @IsTest
-public class ComplianceServiceTest 
-{
+public class ComplianceServiceTest  {
 	@IsTest
-	private static void testVerify()
-	{
+	private static void testVerify() {
 		// Test data
 		Season__c season = new Season__c(
 			Name = '2014', 

@@ -1,19 +1,16 @@
-public class ComplianceService 
+public with sharing class ComplianceService 
 {		
 	/**
 	 * Provides general support to verify compliance in the application
 	 **/
-	public static void verify(Set<Id> recordIds)
-	{
+	public static void verify(Set<Id> recordIds) {
 		// Dynamically create the Domain class instance for these records
 		fflib_ISObjectDomain domain = Application.Domain.newInstance(recordIds);
-		if(domain instanceof ICompliant)
-		{
+		if(domain instanceof ICompliant) {
 			// Ask the domain class to very its compliance
 			ICompliant compliantDomain = (ICompliant) domain;
 			List<VerifyResult> verifyResults = compliantDomain.verifyCompliance();
-			if(verifyResults!=null)
-			{
+			if(verifyResults!=null) {
 				// Check for failed compliances
 				List<VerifyResult> failedCompliances = new List<VerifyResult>();
 				for(VerifyResult verifyResult : verifyResults)
@@ -31,12 +28,10 @@ public class ComplianceService
 	/**
 	 * Custom exception class providing details of the compliance failures
 	 **/
-	public class ComplianceException extends Exception
-	{
+	public class ComplianceException extends Exception {
 		public List<VerifyResult> failures {get; private set;}
 
-		public ComplianceException(String message, List<VerifyResult> failures)
-		{
+		public ComplianceException(String message, List<VerifyResult> failures) {
 			this(message);
 			this.failures = failures;
 		}	
@@ -45,16 +40,14 @@ public class ComplianceService
 	/** 
 	 * Interface used to execute compliance checking logic in each domain class
 	 **/
-	public interface ICompliant
-	{
+	public interface ICompliant {
 		List<VerifyResult> verifyCompliance();
 	}
 
 	/**
 	 * Results of a compliance verification for a given record
 	 **/
-	public class VerifyResult
-	{
+	public class VerifyResult {
 		public Id recordId;
 		public String complianceCode;
 		public Boolean passed;
