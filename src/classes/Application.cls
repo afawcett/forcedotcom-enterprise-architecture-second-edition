@@ -15,12 +15,28 @@ public class Application {
             new Map<Type, Type> {
                     IRaceService.class => RaceServiceImpl.class });
                     
+	// Configure and create the DomainFactory for this Application
+	public static final fflib_Application.DomainFactory Domain = 
+		new fflib_Application.DomainFactory(
+			Application.Selector,
+			// Map SObjectType to Domain Class Constructors 
+			new Map<SObjectType, Type> {
+					Team__c.SObjectType => Teams.Constructor.class,
+					Race__c.SObjectType => Races.Constructor.class,
+					Car__c.SObjectType => Cars.Constructor.class,
+					Driver__c.SObjectType => Drivers.Constructor.class,
+					Contestant__c.SObjectType => Contestants.Constructor.class });                    
+                    
     // Configure and create the SelectorFactory for this Application
     public static final fflib_Application.SelectorFactory Selector = 
         new fflib_Application.SelectorFactory(
-            new Map<SObjectType, Type> {
-                // Opportunity.SObjectType => OpportunitiesSelector.class,
-                }); 
+			// Map SObjectType to Selector Class
+			new Map<SObjectType, Type> {
+					Team__c.SObjectType => TeamsSelector.class,
+					Race__c.SObjectType => RacesSelector.class,
+					Car__c.SObjectType => CarsSelector.class,
+					Driver__c.SObjectType => DriversSelector.class,
+					Contestant__c.SObjectType => ContestantsSelector.class }); 
            
     // Customised Service factory to support developer overrides via Custom Metadata (see Chapter 5)      
     private class ServiceFactory extends fflib_Application.ServiceFactory {

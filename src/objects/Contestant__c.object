@@ -44,20 +44,30 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
     <enableActivities>false</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
-    <enableSearch>false</enableSearch>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Car__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Car</label>
+        <referenceTo>Car__c</referenceTo>
+        <relationshipLabel>Contestants</relationshipLabel>
+        <relationshipName>Contestants</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>ChampionshipPoints__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Championship Points</label>
         <precision>5</precision>
@@ -80,6 +90,7 @@
     </fields>
     <fields>
         <fullName>DriverRace__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <formula>Driver__r.Name + &apos; (&apos; + Race__r.Name + &apos;)&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -116,6 +127,7 @@
     </fields>
     <fields>
         <fullName>GridPosition__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Grid Position</label>
         <precision>2</precision>
@@ -167,6 +179,7 @@
     </fields>
     <fields>
         <fullName>RacePosition__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Race Position</label>
         <precision>2</precision>
@@ -179,6 +192,7 @@
     </fields>
     <fields>
         <fullName>RaceTime__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Race Time</label>
         <precision>9</precision>

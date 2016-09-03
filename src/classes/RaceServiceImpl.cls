@@ -19,7 +19,7 @@ public class RaceServiceImpl implements IRaceService {
         }
 
         // Delegate to contestant service
-        ContestantService.awardChampionshipPoints(uow, contestants);
+        // ContestantService.awardChampionshipPoints(uow, contestants);
 
         // Commit work
         uow.commitWork();
