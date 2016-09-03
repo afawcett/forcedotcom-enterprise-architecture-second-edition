@@ -1,4 +1,4 @@
-public class Races extends fflib_SObjectDomain 
+public class Races extends ApplicationDomain 
 {
 	public Races(List<Race__c> races) {
 		super(races);

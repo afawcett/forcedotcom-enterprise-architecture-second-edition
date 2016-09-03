@@ -1,4 +1,4 @@
-public class Drivers extends fflib_SObjectDomain implements ComplianceService.ICompliant {
+public class Drivers extends ApplicationDomain implements ComplianceService.ICompliant {
     
 	public Drivers(List<Driver__c> drivers) {
 		super(drivers);

@@ -1,4 +1,4 @@
-public class Seasons extends fflib_SObjectDomain {
+public class Seasons extends ApplicationDomain {
     
 	public Seasons(List<Season__c> seasons) {
 		super(seasons);

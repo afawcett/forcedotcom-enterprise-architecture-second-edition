@@ -1,4 +1,4 @@
-public class Cars extends fflib_SObjectDomain implements ComplianceService.ICompliant {
+public class Cars extends ApplicationDomain implements ComplianceService.ICompliant {
     
 	public Cars(List<Car__c> cars) {
 		super(cars);

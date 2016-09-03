@@ -1,4 +1,4 @@
-public class Teams extends fflib_SObjectDomain implements ComplianceService.ICompliant {
+public class Teams extends ApplicationDomain implements ComplianceService.ICompliant {
     
 	public Teams(List<Team__c> teams) {
 		super(teams);
