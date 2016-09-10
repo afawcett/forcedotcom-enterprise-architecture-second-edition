@@ -56,6 +56,11 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>SeasonOverview</fullName>
+        <description>Used by the Season Overview page</description>
+        <label>Season Overview</label>
+    </fieldSets>    
     <fields>
         <fullName>FastestLapBy__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
