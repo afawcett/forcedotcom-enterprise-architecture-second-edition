@@ -28,6 +28,8 @@
         <members>RaceServiceImpl</members>
         <members>RaceServiceImplStub</members>
         <members>RaceServiceTest</members>
+        <members>RaceSummaryController</members>
+        <members>RaceSummaryControllerTest</members>
         <members>Races</members>
         <members>RacesSelector</members>
         <members>SeasonController</members>

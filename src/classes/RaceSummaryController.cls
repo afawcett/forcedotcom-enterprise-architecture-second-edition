@@ -1,16 +1,14 @@
-public with sharing class RaceSummaryController 
-{
+public with sharing class RaceSummaryController  {
+    
 	private ApexPages.StandardController standardController;
 
 	public List<ContestantsSelector.Summary> Summary {get; set;}
 
-	public RaceSummaryController(ApexPages.StandardController standardController) 
-	{
+	public RaceSummaryController(ApexPages.StandardController standardController) {
 		this.standardController = standardController;
 	}
 
-	public PageReference loadSummary()
-	{
+	public PageReference loadSummary() {
 		try {
 
 			// Query summaries for this race
@@ -25,9 +23,7 @@ public with sharing class RaceSummaryController
 				Summary = summariesByRaceId.get(raceId);
 			else
 				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info, 'No summaries for this race'));
-		} 
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			ApexPages.addMessages(e);			
 		}
 		return null;

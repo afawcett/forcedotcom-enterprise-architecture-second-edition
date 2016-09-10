@@ -1,11 +1,11 @@
 @IsTest
-private class RaceSummaryControllerTest 
-{
-	private static Id TEST_RACE_ID = 'a01b0000005lmgk';
+private class RaceSummaryControllerTest  {
+    
+	private static Id TEST_RACE_ID = fflib_IDGenerator.generate(Race__c.SObjectType);
 
 	@IsTest
-	private static void testLoadSummaries()
-	{
+	private static void testLoadSummaries() {
+	    
 		// Set mock implementation of ContestantsSelector
 		Application.Selector.setMock(new ContestantsSelectorMock());
 
@@ -27,10 +27,9 @@ private class RaceSummaryControllerTest
 		System.assertEquals('MP4-29', controller.Summary[0].Car);
 	}
 
-	public class ContestantsSelectorMock extends ContestantsSelector
-	{
-		public override Map<Id, List<ContestantsSelector.Summary>> 
-			selectByRaceIdWithContestantSummary(Set<Id> raceIds)
+	public class ContestantsSelectorMock implements IContestantsSelector {
+	    
+		public Map<Id, List<ContestantsSelector.Summary>> selectByRaceIdWithContestantSummary(Set<Id> raceIds)
 		{
 			// Assert this is our test Race ID
 			Id raceId = (Id) raceIds.iterator().next();
@@ -55,5 +54,14 @@ private class RaceSummaryControllerTest
 				{ raceId => new List<ContestantsSelector.Summary> { 
 					new ContestantsSelector.Summary(contestant) } };
 		}
+		
+        public Schema.SObjectType sObjectType() {
+            return Contestant__c.SObjectType;
+        }
+        public List<SObject> selectSObjectsById(Set<Id> idSet) {
+            throw new ContestantsSelectorMockException('Not implemented');
+        }    		
 	}
+	
+	public class ContestantsSelectorMockException extends Exception {}
 }
