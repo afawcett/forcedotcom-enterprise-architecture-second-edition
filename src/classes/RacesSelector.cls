@@ -1,24 +1,20 @@
-public class RacesSelector extends fflib_SObjectSelector
-{
-	public RacesSelector()
-	{
+public class RacesSelector extends ApplicationSelector {
+    
+	public RacesSelector() {
 		super();
 	}
 
-	public RacesSelector(Boolean includeFieldSetFields)
-	{
+	public RacesSelector(Boolean includeFieldSetFields) {
 		super(includeFieldSetFields);
 	}
 
-    public override List<Schema.FieldSet> getSObjectFieldSetList()
-    {
+    public override List<Schema.FieldSet> getSObjectFieldSetList() {
         return new List<Schema.FieldSet> { 
         	SObjectType.Race__c.FieldSets.SeasonOverview 
         };
     }
 
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Race__c.Id,
 			Race__c.Name,
@@ -30,37 +26,19 @@ public class RacesSelector extends fflib_SObjectSelector
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Race__c.sObjectType;
 	}
 
-	public List<Race__c> selectById(Set<Id> raceIds)
-	{
+	public List<Race__c> selectById(Set<Id> raceIds) {
 		return (List<Race__c>) selectSObjectsById(raceIds);
 	}
 
-	public List<Race__c> selectByIdWithContestants(Set<Id> raceIds)
-	{
-		assertIsAccessible();
-
-		ContestantsSelector contestantSelector = new ContestantsSelector();
-		contestantSelector.assertIsAccessible();
-
-		return (List<Race__c>) Database.query(
-			String.format(
-					'select {0}, ' +
-					  '(select {1} ' +
-					     'from Contestants__r order by {2})' + 
-					  'from {3} ' +
-					  'where id in :raceIds ' + 
-					  'order by {4}', 
-				new List<String>{
-					getFieldListString(),
-					contestantSelector.getFieldListString(),
-					contestantSelector.getOrderBy(),
-					getSObjectName(),
-					getOrderBy()
-				}));		
+	public List<Race__c> selectByIdWithContestants(Set<Id> raceIds) {
+	    fflib_QueryFactory racesQueryFactory = newQueryFactory();
+	    fflib_QueryFactory contestantsSubQueryFactory = 
+            new ContestantsSelector().addQueryFactorySubselect(racesQueryFactory); 	    
+        return (List<Race__c>) Database.query(
+            racesQueryFactory.setCondition('Id in :raceIds').toSOQL());
 	}
 }

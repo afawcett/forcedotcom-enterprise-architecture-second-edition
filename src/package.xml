@@ -3,6 +3,7 @@
     <types>
         <members>Application</members>
         <members>ApplicationDomain</members>
+        <members>ApplicationSelector</members>
         <members>Cars</members>
         <members>CarsSelector</members>
         <members>ChampionshipPointsSelector</members>
@@ -19,6 +20,7 @@
         <members>ContestantsTest</members>
         <members>Drivers</members>
         <members>DriversSelector</members>
+        <members>IContestantsSelector</members>
         <members>IRaceService</members>
         <members>RaceController</members>
         <members>RaceControllerTest</members>
@@ -26,8 +28,6 @@
         <members>RaceServiceImpl</members>
         <members>RaceServiceImplStub</members>
         <members>RaceServiceTest</members>
-        <members>RaceSummaryController</members>
-        <members>RaceSummaryControllerTest</members>
         <members>Races</members>
         <members>RacesSelector</members>
         <members>SeasonController</members>
@@ -195,6 +195,10 @@
         <members>Season__c</members>
         <members>Team__c</members>
         <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Race__c.SeasonOverview</members>
+        <name>FieldSet</name>
     </types>
     <types>
         <members>Car__c-Car Layout</members>

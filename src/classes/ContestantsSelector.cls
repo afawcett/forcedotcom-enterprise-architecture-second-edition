@@ -1,12 +1,10 @@
-public virtual class ContestantsSelector extends fflib_SObjectSelector
-{
-	public static ContestantsSelector newInstance() 
-	{ 
-		return (ContestantsSelector) Application.Selector.newInstance(Contestant__c.SObjectType); 
+public class ContestantsSelector extends ApplicationSelector implements IContestantsSelector {
+    
+	public static IContestantsSelector newInstance()  { 
+		return (IContestantsSelector) Application.Selector.newInstance(Contestant__c.SObjectType); 
 	}
 
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Contestant__c.Id,
 			Contestant__c.Name,
@@ -24,70 +22,57 @@ public virtual class ContestantsSelector extends fflib_SObjectSelector
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Contestant__c.sObjectType;
 	}
 
-	public override String getOrderBy()
-	{
+	public override String getOrderBy() {
 		return 'Race__r.Season__r.Name, Race__r.Name, RacePosition__c';
 	}
 
-	public List<Contestant__c> selectById(Set<Id> ids)
-	{
+	public List<Contestant__c> selectById(Set<Id> ids) {
 		return (List<Contestant__c>) super.selectSObjectsById(ids);
 	}
 
-	public List<Contestant__c> selectByIdWithDriver(Set<Id> driverIds)
-	{
-		assertIsAccessible();
-
-		DriversSelector driversSelector = new DriversSelector();
-		driversSelector.assertIsAccessible();
-
+	public List<Contestant__c> selectByIdWithDriver(Set<Id> driverIds) {
+	    
+	    fflib_QueryFactory contestantQueryFactory = newQueryFactory();
+            
+        new DriversSelector().
+            configureQueryFactoryFields(
+                contestantQueryFactory, 
+                Contestant__c.Driver__c.getDescribe().getRelationshipName());
+                
 		return Database.query(
-			String.format('select {0},{1} from {2} where Id in :driverIds order by {3}', 
-			new List<String>{
-				getFieldListString(),
-				driversSelector.getRelatedFieldListString('Driver__r'),
-				getSObjectName(),
-				getOrderBy()}));		
+            contestantQueryFactory.setCondition('Id in :driverIds').toSOQL());
 	}	
 
-	public virtual Map<Id, List<Summary>> selectByRaceIdWithContestantSummary(Set<Id> raceIds)
-	{
-		assertIsAccessible();
-		new DriversSelector().assertIsAccessible();
-		new CarsSelector().assertIsAccessible();
-		new TeamsSelector().assertIsAccessible();
-		Map<Id, List<Summary>> summariesByRaceId = new Map<Id, List<Summary>>();		
+	public Map<Id, List<Summary>> selectByRaceIdWithContestantSummary(Set<Id> raceIds) {
+	    
+		Map<Id, List<Summary>> summariesByRaceId = new Map<Id, List<Summary>>();
+				
 		for(Contestant__c contestant : 
-				Database.query(
-					String.format(
-						'select {0} from {1} where Race__c in :raceIds order by {2}', 
-						new List<String>{
-							String.join(
-								new List<String> {
-									'Race__r.Season__r.Name',
-									'Race__r.Name',
-									'RacePosition__c',
-									'Driver__r.Name',
-									'Driver__r.Team__r.Name',
-									'Car__r.Name' }, ','),
-							getSObjectName(),
-							getOrderBy()})))
-		{
+			Database.query(
+			    newQueryFactory(false).
+			        selectField(Contestant__c.RacePosition__c).
+			        selectField('Race__r.Name').
+                    selectField('Race__r.Season__r.Name').
+                    selectField('Driver__r.Name').
+                    selectField('Driver__r.Team__r.Name').
+                    selectField('Car__r.Name').
+			        setCondition('Race__c in :raceIds').
+			        toSOQL())) {
+
 			List<Summary> summaries = summariesByRaceId.get(contestant.Race__c);
 			if(summaries==null)
 				summariesByRaceId.put(contestant.Race__c, summaries = new List<Summary>());
 			summaries.add(new Summary(contestant));
 		}
+		
 		return summariesByRaceId;
 	}
 
-	public class Summary 
-	{
+	public class Summary {
 		private Contestant__c contestant;				
 		public String Season { 
 			get { return contestant.Race__r.Season__r.Name; }}		

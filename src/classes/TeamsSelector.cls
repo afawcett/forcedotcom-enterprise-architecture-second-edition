@@ -1,4 +1,4 @@
-public class TeamsSelector extends fflib_SObjectSelector {
+public class TeamsSelector extends ApplicationSelector {
 	
 	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {

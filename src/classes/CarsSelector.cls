@@ -1,4 +1,4 @@
-public class CarsSelector extends fflib_SObjectSelector 
+public class CarsSelector extends ApplicationSelector 
 {
 	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {

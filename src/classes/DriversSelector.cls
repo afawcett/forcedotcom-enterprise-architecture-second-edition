@@ -1,7 +1,6 @@
-public class DriversSelector extends fflib_SObjectSelector
-{
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+public class DriversSelector extends ApplicationSelector {
+    
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 			Driver__c.Id,
 			Driver__c.Name,
@@ -10,21 +9,19 @@ public class DriversSelector extends fflib_SObjectSelector
 		};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return Driver__c.sObjectType;
 	}
 
-	public List<Driver__c> selectById(Set<Id> ids)
-	{
+	public List<Driver__c> selectById(Set<Id> ids) {
 		return (List<Driver__c>) super.selectSObjectsById(ids);
 	}
 
-	public List<Driver__c> selectByTeam(Set<Id> teamIds)
-	{
-		assertIsAccessible();
-		return Database.query(
-			String.format('SELECT {0} FROM {1} WHERE Team__c in :teamIds ORDER BY {2}', 
-			new List<String>{getFieldListString(),getSObjectName(),getOrderBy()}));
+	public List<Driver__c> selectByTeam(Set<Id> teamIds) {
+	    return (List<Driver__c>) 
+	       Database.query(
+	           newQueryFactory().
+	               setCondition('Team__c in :teamIds').
+	               toSOQL());
 	}
 }
