@@ -1,10 +1,61 @@
 <apex:page standardController="Race__c" extensions="RaceSummaryController" action="{!loadSummary}">
-	<apex:pageBlock >
-		<apex:pageBlockTable value="{!Summary}" var="summaryRow">
-			<apex:column value="{!summaryRow.Position}"/>
-			<apex:column value="{!summaryRow.Driver}"/>
-			<apex:column value="{!summaryRow.Team}"/>
-			<apex:column value="{!summaryRow.Car}"/>
-		</apex:pageBlockTable>
-	</apex:pageBlock>
+    <apex:stylesheet value="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system.css')}" />
+    <apex:outputPanel rendered="{!$User.UIThemeDisplayed == 'Theme3'}">
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!Summary}" var="summaryRow">
+                <apex:column value="{!summaryRow.Position}">
+                    <apex:facet name="header">Position</apex:facet>
+                </apex:column>
+                <apex:column value="{!summaryRow.Driver}">
+                    <apex:facet name="header">Driver</apex:facet>
+                </apex:column>
+                <apex:column value="{!summaryRow.Team}">
+                    <apex:facet name="header">Team</apex:facet>
+                </apex:column>
+                <apex:column value="{!summaryRow.Car}">
+                    <apex:facet name="header">Car</apex:facet>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:outputPanel> 
+    <apex:outputPanel rendered="{!$User.UIThemeDisplayed == 'Theme4d'}">
+        <div class="slds">
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+              <thead>
+                <tr class="slds-text-title--caps">
+                  <th scope="col">
+                    <div class="slds-truncate" title="Position">Position</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate" title="Driver">Driver</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate" title="Team">Team</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate" title="Car">Car</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <apex:repeat value="{!Summary}" var="summaryRow">
+                <tr>
+                  <th scope="row" data-label="Position">
+                    <div class="slds-truncate">{!summaryRow.Position}</div>
+                  </th>
+                  <td data-label="Driver">
+                    <div class="slds-truncate">{!summaryRow.Driver}</div>
+                  </td>
+                  <td data-label="Team">
+                    <div class="slds-truncate">{!summaryRow.Team}</div>
+                  </td>
+                  <td data-label="Car">
+                    <div class="slds-truncate">{!summaryRow.Car}</div>
+                  </td>
+                </tr>
+                </apex:repeat>
+              </tbody>
+            </table>
+        </div>
+    </apex:outputPanel> 
 </apex:page>

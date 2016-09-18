@@ -20,14 +20,17 @@
         <members>ContestantsTest</members>
         <members>Drivers</members>
         <members>DriversSelector</members>
+        <members>FLSDemoController</members>
         <members>IContestantsSelector</members>
         <members>IRaceService</members>
+        <members>OutOfRaceController</members>
         <members>RaceController</members>
         <members>RaceControllerTest</members>
         <members>RaceService</members>
         <members>RaceServiceImpl</members>
         <members>RaceServiceImplStub</members>
         <members>RaceServiceTest</members>
+        <members>RaceResultsController</members>
         <members>RaceSummaryController</members>
         <members>RaceSummaryControllerTest</members>
         <members>Races</members>
@@ -91,6 +94,10 @@
         <members>compliancecar</members>
         <members>compliancedriver</members>
         <members>complianceteam</members>
+        <members>flsdemo</members>
+        <members>outofrace</members>
+        <members>racesummary</members>
+        <members>racesummaryascsv</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -124,6 +131,7 @@
         <members>Contestant__c.RacePosition__c</members>
         <members>Contestant__c.RaceTime__c</members>
         <members>Contestant__c.Race__c</members>
+        <members>Contestant__c.RetirementReason__c</members>
         <members>Driver__c.Active__c</members>
         <members>Driver__c.DriverId__c</members>
         <members>Driver__c.FIASuperLicense__c</members>
@@ -203,6 +211,12 @@
         <name>FieldSet</name>
     </types>
     <types>
+        <members>Car_Record_Page</members>
+        <members>Driver_Record_Page</members>
+        <members>Team_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
         <members>Car__c-Car Layout</members>
         <members>ChampionshipPoint__mdt-Championship Point Layout</members>
         <members>Contestant__c-Contestant Layout</members>
@@ -235,8 +249,14 @@
         <name>QuickAction</name>
     </types>
     <types>
+        <members>slds</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
         <members>Car__c.VerifyCompliance</members>
+        <members>Contestant__c.OutOfRace</members>
         <members>Driver__c.VerifyCompliance</members>
+        <members>Race__c.DownloadSummary</members>
         <members>Team__c.VerifyCompliance</members>
         <name>WebLink</name>
     </types>
