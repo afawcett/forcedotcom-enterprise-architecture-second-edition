@@ -28,4 +28,9 @@ public with sharing class RaceSummaryController  {
 		}
 		return null;
 	}
+	
+	public String getCSVContent() {
+		return RaceService.generateSummaryAsCSV(
+			new Set<Id> { standardController.getId() });
+	}	
 }

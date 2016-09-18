@@ -27,4 +27,11 @@ private class RaceServiceTest {
 			System.assertEquals('Not implemented', e.getMessage());
 		}
 	}
+	
+	@isTest static void testCSV() {
+		SeasonService.importSeasons(TestData.SEASONSDATA);
+		String csvOutput = RaceService.generateSummaryAsCSV(
+			new Map<Id, SObject>([select Id from Race__c]).keySet());
+		System.assertEquals('2013,Spain,,Lewis Hamilton,,\r\n', csvOutput);		
+	}	
 }
