@@ -1,0 +1,46 @@
+<aura:component controller="RaceResultsComponentController">
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="recordName" type="String"/>
+    <aura:attribute name="results" type="Object[]"/>
+    <aura:handler event="c:RaceSelected" action="{!c.handleRaceSelectedEvent}"/>
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <c:svgIcon svgPath="{!$Resource.slds + '/assets/icons/standard-sprite/svg/symbols.svg#poll'}" category="standard" size="small" name="goals" />
+          </div>
+          <div class="slds-media__body slds-truncate">
+            <h2>
+              <a href="javascript:void(0);" class="slds-text-link--reset">
+                <span class="slds-text-heading--small">Results {!v.recordName}</span>
+              </a>
+            </h2>
+          </div>
+        </header>
+      </div>
+      <div class="slds-card__body slds-text-align--center">
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+          <thead>
+            <tr class="slds-text-title--caps">
+              <th scope="col"><div class="slds-truncate">Driver</div></th>
+              <th scope="col"><div class="slds-truncate">Team</div></th>
+              <th scope="col"><div class="slds-truncate">Grid</div></th>
+              <th scope="col"><div class="slds-truncate">Race Time</div></th>
+              <th scope="col"><div class="slds-truncate">Points</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <aura:iteration items="{!v.results}" var="result">
+            <tr>
+              <th scope="row"><div class="slds-truncate">{!result.Driver}</div></th>
+              <td><div class="slds-truncate">{!result.Team}</div></td>
+              <td><div class="slds-truncate">{!result.Grid}</div></td>
+              <td><div class="slds-truncate">{!result.RaceTime}</div></td>
+              <td><div class="slds-truncate">{!result.Points}</div></td>
+            </tr>
+            </aura:iteration>
+          </tbody>
+        </table>      
+      </div>
+    </article>
+</aura:component>

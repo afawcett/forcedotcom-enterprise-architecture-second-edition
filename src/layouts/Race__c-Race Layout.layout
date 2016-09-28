@@ -13,16 +13,20 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Location__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Season__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>PollPositionLapTime__c</field>
+                <behavior>Edit</behavior>
+                <field>StartDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FastestLapBy__c</field>
+                <behavior>Readonly</behavior>
+                <field>PollPositionLapTime__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -36,6 +40,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>TotalDNFs__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>EndDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>FastestLapBy__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -88,12 +100,13 @@
     <relatedLists>
         <customButtons>OutOfRace</customButtons>
         <fields>NAME</fields>
-        <fields>GridPosition__c</fields>
         <fields>DriverRace__c</fields>
+        <fields>RacePosition__c</fields>
+        <fields>ChampionshipPoints__c</fields>
         <fields>DNF__c</fields>
         <relatedList>Contestant__c.Race__c</relatedList>
-        <sortField>GridPosition__c</sortField>
-        <sortOrder>Asc</sortOrder>
+        <sortField>RacePosition__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -105,7 +118,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h2000000N5rAB</masterLabel>
+        <masterLabel>00h5800000210TW</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

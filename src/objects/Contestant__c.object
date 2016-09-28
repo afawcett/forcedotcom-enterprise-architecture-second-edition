@@ -225,12 +225,26 @@
     </fields>
     <fields>
         <fullName>RetirementReason__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Retirement Reason</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Win__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(RacePosition__c == 1, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Win</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <label>Contestant</label>
     <nameField>

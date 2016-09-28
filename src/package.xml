@@ -24,13 +24,16 @@
         <members>IContestantsSelector</members>
         <members>IRaceService</members>
         <members>OutOfRaceController</members>
+        <members>RaceCalendarComponentController</members>
         <members>RaceController</members>
         <members>RaceControllerTest</members>
+        <members>RaceResultsComponentController</members>
+        <members>RaceResultsController</members>
         <members>RaceService</members>
         <members>RaceServiceImpl</members>
         <members>RaceServiceImplStub</members>
         <members>RaceServiceTest</members>
-        <members>RaceResultsController</members>
+        <members>RaceStandingsComponentController</members>
         <members>RaceSummaryController</members>
         <members>RaceSummaryControllerTest</members>
         <members>Races</members>
@@ -109,6 +112,14 @@
     </types>
     <types>
         <members>ComplianceChecker</members>
+        <members>RaceCalendar</members>
+        <members>RaceResults</members>
+        <members>RaceSelected</members>
+        <members>RaceSetup</members>
+        <members>RaceStandings</members>
+        <members>RacingOverview</members>
+        <members>defaultTokens</members>
+        <members>svgIcon</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -132,6 +143,7 @@
         <members>Contestant__c.RaceTime__c</members>
         <members>Contestant__c.Race__c</members>
         <members>Contestant__c.RetirementReason__c</members>
+        <members>Contestant__c.Win__c</members>
         <members>Driver__c.Active__c</members>
         <members>Driver__c.DriverId__c</members>
         <members>Driver__c.FIASuperLicense__c</members>
@@ -140,9 +152,12 @@
         <members>Driver__c.Team__c</members>
         <members>Driver__c.TwitterHandle__c</members>
         <members>RaceData__c.Race__c</members>
+        <members>Race__c.EndDate__c</members>
         <members>Race__c.FastestLapBy__c</members>
+        <members>Race__c.Location__c</members>
         <members>Race__c.PollPositionLapTime__c</members>
         <members>Race__c.Season__c</members>
+        <members>Race__c.StartDate__c</members>
         <members>Race__c.Status__c</members>
         <members>Race__c.TotalDNFs__c</members>
         <members>Season__c.Current__c</members>
