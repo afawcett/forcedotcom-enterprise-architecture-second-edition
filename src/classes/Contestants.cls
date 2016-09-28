@@ -16,10 +16,10 @@ public class Contestants extends ApplicationDomain {
 		Map<Id, Race__c> associatedRaces = 
 			new Map<Id, Race__c>(new RacesSelector().selectById(raceIds));
 
-		// Only permit new contestants to be added to Scheduled races
+		// Only permit new contestants to be added to Scheduled races, unless they have race position or DNF (aka historic data load)
 		for(Contestant__c contestant : (List<Contestant__c>) Records) {
 			Race__c race = associatedRaces.get(contestant.Race__c);
-			if(race.Status__c != 'Scheduled') {
+			if(race.Status__c != 'Scheduled' && contestant.RacePosition__c == null && contestant.DNF__c != true) {
                 contestant.addError( 'Contestants can only be added to scheduled races');			    
 			}
 		}

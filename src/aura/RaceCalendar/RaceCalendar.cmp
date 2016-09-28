@@ -1,6 +1,11 @@
-<aura:component controller="RaceCalendarComponentController">
-    <aura:attribute name="calendar" type="Object"/>    
-    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>    
+<aura:component controller="RaceCalendarComponentController" implements="flexipage:availableForAllPageTypes" access="global">
+
+    <!-- Attributes -->
+    <aura:attribute name="calendar" type="Object"/>
+    
+    <!-- Event handlers -->    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+        
     <article class="slds-card">
       <div class="slds-card__header slds-grid">
         <header class="slds-media slds-media--center slds-has-flexi-truncate">
@@ -18,9 +23,9 @@
           <aura:iteration items="{!v.calendar.Remaining}" var="race">
               <li class="{!'slds-item ' + (race.Selected ? 'selectedRace' : '')}" onclick="{!c.onRaceClicked}" data-raceid="{!race.Id}" data-racename="{!race.Name}">
                 <div class="slds-tile slds-tile--board">
-                  <h3 class="slds-truncate slds-text-heading--medium">{!race.Name}</h3>
+                  <h4 class="slds-truncate slds-text-heading--small">{!race.Name}</h4>
                   <div class="slds-tile__detail slds-text-body--small">
-                    <p class="slds-text-heading--small">{!race.Location}</p>
+                    <p class="slds-truncate">{!race.Location}</p>
                     <p class="slds-truncate">{!race.RaceDate}</p>
                   </div>
                 </div>
@@ -34,14 +39,14 @@
           <aura:iteration items="{!v.calendar.Completed}" var="race">
               <li class="{!'slds-item ' + (race.Selected ? 'selectedRace' : '')}" onclick="{!c.onRaceClicked}" data-raceid="{!race.Id}" data-racename="{!race.Name}">
                 <div class="slds-tile slds-tile--board" aura:id="{!race.Id}">
-                  <h3 class="slds-truncate slds-text-heading--medium">{!race.Name}</h3>
+                  <h4 class="slds-truncate slds-text-heading--small">{!race.Name}</h4>
                   <div class="slds-tile__detail slds-text-body--small">
-                    <p class="slds-text-heading--small">{!race.Location}</p>
+                    <p class="slds-truncate">{!race.Location}</p>
                     <p class="slds-truncate">{!race.RaceDate}</p>
                   </div>
                 </div>
               </li>
           </aura:iteration>    
-        </ul>      
+        </ul>
     </div>
 </aura:component>

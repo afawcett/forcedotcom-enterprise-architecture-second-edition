@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FormulaForce</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>ff2w17</namespacePrefix>
     <types>
         <members>Application</members>
         <members>ApplicationDomain</members>
@@ -33,11 +36,14 @@
         <members>RaceServiceImpl</members>
         <members>RaceServiceImplStub</members>
         <members>RaceServiceTest</members>
+        <members>RaceSetupComponentController</members>
         <members>RaceStandingsComponentController</members>
         <members>RaceSummaryController</members>
         <members>RaceSummaryControllerTest</members>
         <members>Races</members>
         <members>RacesSelector</members>
+        <members>SObjectDataLoader</members>
+        <members>SObjectDataLoaderTest</members>
         <members>SeasonController</members>
         <members>SeasonControllerTest</members>
         <members>SeasonNewsletterScheduler</members>
@@ -125,6 +131,7 @@
     <types>
         <members>RaceAnalytics</members>
         <members>RaceManagement</members>
+        <members>RaceManagementLightning</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -228,6 +235,7 @@
     <types>
         <members>Car_Record_Page</members>
         <members>Driver_Record_Page</members>
+        <members>Race_Record_Page</members>
         <members>Team_Record_Page</members>
         <name>FlexiPage</name>
     </types>
@@ -261,9 +269,11 @@
     </types>
     <types>
         <members>Contestant__c.OutOfRace</members>
+        <members>Race__c.AddDrivers</members>
         <name>QuickAction</name>
     </types>
     <types>
+        <members>sampledata</members>
         <members>slds</members>
         <name>StaticResource</name>
     </types>

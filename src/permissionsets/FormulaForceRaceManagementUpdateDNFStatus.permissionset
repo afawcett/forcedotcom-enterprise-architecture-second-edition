@@ -8,6 +8,10 @@
         <application>RaceManagement</application>
         <visible>false</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>RaceManagementLightning</application>
+        <visible>false</visible>
+    </applicationVisibilities>
     <fieldPermissions>
         <editable>false</editable>
         <field>Car__c.Weight__c</field>

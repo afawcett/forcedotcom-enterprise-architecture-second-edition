@@ -1,6 +1,11 @@
-<aura:component controller="RaceStandingsComponentController">
+<aura:component controller="RaceStandingsComponentController" implements="flexipage:availableForAllPageTypes" access="global">
+
+    <!-- Attributes -->
+    <aura:attribute name="standings" type="Object[]"/>
+    
+    <!-- Event handlers -->    
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    <aura:attribute name="standings" type="Object[]"/>    
+    
     <article class="slds-card">
       <div class="slds-card__header slds-grid">
         <header class="slds-media slds-media--center slds-has-flexi-truncate">

@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -63,6 +59,7 @@
     </fieldSets>
     <fields>
         <fullName>EndDate__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
@@ -86,6 +83,7 @@
     </fields>
     <fields>
         <fullName>Location__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Location</label>
         <length>32</length>
@@ -123,6 +121,7 @@
     </fields>
     <fields>
         <fullName>StartDate__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>false</required>
@@ -154,6 +153,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>

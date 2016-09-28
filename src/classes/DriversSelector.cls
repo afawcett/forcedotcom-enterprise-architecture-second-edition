@@ -16,7 +16,7 @@ public class DriversSelector extends ApplicationSelector {
 	public List<Driver__c> selectById(Set<Id> ids) {
 		return (List<Driver__c>) super.selectSObjectsById(ids);
 	}
-
+    
 	public List<Driver__c> selectByTeam(Set<Id> teamIds) {
 	    return (List<Driver__c>) 
 	       Database.query(
@@ -24,4 +24,10 @@ public class DriversSelector extends ApplicationSelector {
 	               setCondition('Team__c in :teamIds').
 	               toSOQL());
 	}
+
+    public List<Driver__c> selectAll() {
+        return (List<Driver__c>) 
+           Database.query(
+               newQueryFactory().toSOQL());        
+    }
 }

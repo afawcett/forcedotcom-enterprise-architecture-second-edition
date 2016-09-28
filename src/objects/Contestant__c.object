@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -235,6 +231,7 @@
     </fields>
     <fields>
         <fullName>Win__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <formula>IF(RacePosition__c == 1, 1, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

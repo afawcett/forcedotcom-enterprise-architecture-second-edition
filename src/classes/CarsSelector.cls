@@ -10,5 +10,11 @@ public class CarsSelector extends ApplicationSelector
 
 	public Schema.SObjectType getSObjectType() {
 		return Car__c.sObjectType;
-	}	
+	}
+		
+    public List<Car__c> selectAll() {
+        return (List<Car__c>) 
+           Database.query(
+               newQueryFactory().toSOQL());        
+    }		
 }

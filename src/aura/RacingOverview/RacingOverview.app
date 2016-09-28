@@ -1,5 +1,4 @@
-<aura:application >
-    <ltng:require styles="{!$Resource.slds + '/assets/styles/salesforce-lightning-design-system.css'}"/>
+<aura:application extends="force:slds" access="global">
     <div class="slds">
         <div class="slds-page-header">
           <div class="slds-grid">

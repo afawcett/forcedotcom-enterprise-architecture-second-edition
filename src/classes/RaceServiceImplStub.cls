@@ -29,4 +29,8 @@ public class RaceServiceImplStub implements IRaceService {
 	public String generateSummaryAsCSV(Set<Id> raceIds) {
         throw new RaceService.RaceServiceException('Not implemented');
 	}    
+	
+	public Map<Id, Integer> addDrivers(Map<Id, List<Id>> driversByRaceId) {
+        throw new RaceService.RaceServiceException('Not implemented');	    
+	}
 }
