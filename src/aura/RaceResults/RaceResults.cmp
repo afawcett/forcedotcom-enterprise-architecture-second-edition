@@ -10,22 +10,10 @@
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:RaceSelected" action="{!c.handleRaceSelectedEvent}"/>
     
-    <article class="slds-card">
-      <div class="slds-card__header slds-grid">
-        <header class="slds-media slds-media--center slds-has-flexi-truncate">
-          <div class="slds-media__figure">
-            <c:svgIcon svgPath="{!$Resource.slds + '/assets/icons/standard-sprite/svg/symbols.svg#poll'}" category="standard" size="small" name="goals" />
-          </div>
-          <div class="slds-media__body slds-truncate">
-            <h2>
-              <a href="javascript:void(0);" class="slds-text-link--reset">
-                <span class="slds-text-heading--small">Results {!v.recordName}</span>
-              </a>
-            </h2>
-          </div>
-        </header>
-      </div>
-      <div class="slds-card__body slds-text-align--center">
+    <lightning:card >
+        <aura:set attribute="title">
+            <lightning:icon iconName="standard:poll" size="small"/>&nbsp;Results {!v.recordName}            
+        </aura:set>
         <table class="slds-table slds-table--bordered slds-table--cell-buffer">
           <thead>
             <tr class="slds-text-title--caps">
@@ -48,6 +36,5 @@
             </aura:iteration>
           </tbody>
         </table>      
-      </div>
-    </article>
+    </lightning:card>
 </aura:component>
