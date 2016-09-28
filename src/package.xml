@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>FormulaForce</fullName>
-    <apiAccessLevel>Unrestricted</apiAccessLevel>
-    <namespacePrefix>ff2w17</namespacePrefix>
     <types>
         <members>Application</members>
         <members>ApplicationDomain</members>
