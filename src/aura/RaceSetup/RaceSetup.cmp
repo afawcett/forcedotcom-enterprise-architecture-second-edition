@@ -24,7 +24,8 @@
                     <tr class="slds-hint-parent">
                       <th scope="row" data-label="Driver Name">
                         <div class="slds-truncate">
-                            <lightning:input value="{!driver.Selected}" type="checkbox" checked="{!driver.Selected}" label="{!driver.Name}" />
+                            <lightning:input value="{!driver.Selected}" type="checkbox" 
+                                checked="{!driver.Selected}" label="{!driver.Name}" />
                         </div>
                       </th>
                     </tr>
@@ -33,8 +34,8 @@
             </table>
         </div>        
         <div class="slds-form-element">
-            <ui:button label="Cancel" press="{!c.onCancel}" class="slds-button slds-button--neutral" />
-            <ui:button label="Add Drivers" press="{!c.onAddDrivers}" class="slds-button slds-button--brand" />
+            <lightning:button label="Cancel" onclick="{!c.onCancel}"/>
+            <lightning:button label="Add Drivers" onclick="{!c.onAddDrivers}"/>
         </div>
     </div>
 </aura:component>
