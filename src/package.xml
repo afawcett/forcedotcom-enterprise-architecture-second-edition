@@ -237,6 +237,7 @@
         <members>Driver_Record_Page</members>
         <members>Race_Record_Page</members>
         <members>Team_Record_Page</members>
+        <members>RaceManagementUtilityBar</members>
         <name>FlexiPage</name>
     </types>
     <types>
