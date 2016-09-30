@@ -1,37 +1,34 @@
 <aura:component controller="RaceStandingsComponentController" implements="flexipage:availableForAllPageTypes" access="global">
-
     <!-- Attributes -->
-    <aura:attribute name="standings" type="Object[]"/>
-    
+    <aura:attribute name="standings" type="Object[]" access="private"/>    
     <!-- Event handlers -->    
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
-    
+    <!-- Component markup -->
     <lightning:card >
         <aura:set attribute="title">
-            <lightning:icon iconName="standard:reward" size="small" alternativeText="Indicates approval"/>&nbsp;Standings            
+            <lightning:icon iconName="standard:reward" size="small"/>&nbsp;Standings            
         </aura:set>
         <table class="slds-table slds-table--bordered slds-table--cell-buffer">
           <thead>
             <tr class="slds-text-title--caps">
-              <th scope="col"><div class="slds-truncate" title=""></div></th>
-              <th scope="col"><div class="slds-truncate" title="Driver">Driver</div></th>
-              <th scope="col"><div class="slds-truncate" title="Team">Team</div></th>
-              <th scope="col"><div class="slds-truncate" title="Wins">Wins</div></th>
-              <th scope="col"><div class="slds-truncate" title="Points">Points</div></th>
+              <th scope="col"></th>
+              <th scope="col">Driver</th>
+              <th scope="col">Team</th>
+              <th scope="col">Wins</th>
+              <th scope="col">Points</th>
             </tr>
           </thead>
           <tbody>
             <aura:iteration items="{!v.standings}" var="standing">
                 <tr>
-                  <th scope="row" data-label="Position"><div class="slds-truncate">{!standing.Position}</div></th>
-                  <td data-label="Driver"><div class="slds-truncate">{!standing.Driver}</div></td>
-                  <td data-label="Team"><div class="slds-truncate">{!standing.Team}</div></td>
-                  <td data-label="Wins"><div class="slds-truncate">{!standing.Wins}</div></td>
-                  <td data-label="Points"><div class="slds-truncate">{!standing.Points}</div></td>
+                  <th scope="row" data-label="Position">{!standing.Position}</th>
+                  <td data-label="Driver">{!standing.Driver}</td>
+                  <td data-label="Team">{!standing.Team}</td>
+                  <td data-label="Wins">{!standing.Wins}</td>
+                  <td data-label="Points">{!standing.Points}</td>
                 </tr>
             </aura:iteration>
           </tbody>
         </table>      
-    </lightning:card>
-    
+    </lightning:card>    
 </aura:component>

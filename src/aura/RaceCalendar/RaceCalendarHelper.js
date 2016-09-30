@@ -12,9 +12,29 @@
         $A.enqueueAction(action);        
     },
     /**
+     * Updates the selected race to the one clicked and fires the RaceSelected application event
+     **/
+    selectRace : function(component, event ) {    
+        // Establish the selected race via the HTML5 data attribute raceid added in the markup
+        var selectedRaceId = event.currentTarget.dataset.raceid;
+        var selectedRaceName = event.currentTarget.dataset.racename;
+        
+        // Mark the race as selected and deselect any currently selected
+        var calendar = component.get('v.calendar');
+        this.updateSelectedRace(calendar.Remaining, selectedRaceId);
+        this.updateSelectedRace(calendar.Completed, selectedRaceId);
+        component.set("v.calendar", calendar);
+        
+        // Fire the RaceSelected event
+        var compEvent = $A.get("e.c:RaceSelected");
+        compEvent.setParams({"raceId" : selectedRaceId } );
+        compEvent.setParams({"raceName" : selectedRaceName } );
+        compEvent.fire();        
+    },
+    /**
      * Utility function scans a list of races and marks the given race as selected
      **/
-    selectRace : function(races, raceId) {
+    updateSelectedRace : function(races, raceId) {
         for(var raceIdx = 0; raceIdx < races.length; raceIdx++) {
             races[raceIdx].Selected = races[raceIdx].Id == raceId ? true : false;
         }

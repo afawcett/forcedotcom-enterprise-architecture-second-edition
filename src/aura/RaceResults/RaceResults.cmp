@@ -1,15 +1,11 @@
 <aura:component controller="RaceResultsComponentController" implements="force:hasRecordId,flexipage:availableForRecordHome,flexipage:availableForAllPageTypes" access="global">
-
     <!-- Attributes -->
-    <aura:attribute name="recordId" type="Id" 
-        description="If set by the container will responding during load, otherwise responds to RaceSelected events"/>
-    <aura:attribute name="recordName" type="String"/>
-    <aura:attribute name="results" type="Object[]"/>
-    
+    <aura:attribute name="recordName" type="String" access="private"/>
+    <aura:attribute name="results" type="Object[]" access="private"/>    
     <!--  Event handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler event="c:RaceSelected" action="{!c.handleRaceSelectedEvent}"/>
-    
+    <!--  Component markup -->
     <lightning:card >
         <aura:set attribute="title">
             <lightning:icon iconName="standard:poll" size="small"/>&nbsp;Results {!v.recordName}            
@@ -17,21 +13,21 @@
         <table class="slds-table slds-table--bordered slds-table--cell-buffer">
           <thead>
             <tr class="slds-text-title--caps">
-              <th scope="col"><div class="slds-truncate">Driver</div></th>
-              <th scope="col"><div class="slds-truncate">Team</div></th>
-              <th scope="col"><div class="slds-truncate">Grid</div></th>
-              <th scope="col"><div class="slds-truncate">Race Time</div></th>
-              <th scope="col"><div class="slds-truncate">Points</div></th>
+              <th scope="col">Driver</th>
+              <th scope="col">Team</th>
+              <th scope="col">Grid</th>
+              <th scope="col">Race Time</th>
+              <th scope="col">Points</th>
             </tr>
           </thead>
           <tbody>
             <aura:iteration items="{!v.results}" var="result">
             <tr>
-              <th scope="row"><div class="slds-truncate">{!result.Driver}</div></th>
-              <td><div class="slds-truncate">{!result.Team}</div></td>
-              <td><div class="slds-truncate">{!result.Grid}</div></td>
-              <td><div class="slds-truncate">{!result.RaceTime}</div></td>
-              <td><div class="slds-truncate">{!result.Points}</div></td>
+              <th scope="row">{!result.Driver}</th>
+              <td>{!result.Team}</td>
+              <td>{!result.Grid}</td>
+              <td>{!result.RaceTime}</td>
+              <td>{!result.Points}</td>
             </tr>
             </aura:iteration>
           </tbody>
