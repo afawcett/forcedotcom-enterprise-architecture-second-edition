@@ -1,6 +1,10 @@
-public class TestData {
-    
-	public static final String SEASONSDATA = 
+public class TestData {    
+	/** 
+	 * Returns a JSON string for a test / sample import
+	 **/
+	public static String asJSON()
+	{
+		return 
 			'{' +
 				'"drivers" : [ ' +
 					'{' +
@@ -32,4 +36,5 @@ public class TestData {
 					'}' +
 				']' +
 			'}';
+	}
 }

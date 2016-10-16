@@ -2,7 +2,7 @@
 private class RaceServiceTest {
     	
 	@isTest static void testAwardPoints() {
-		SeasonService.importSeasons(TestData.SEASONSDATA);
+		SeasonService.importSeasons(TestData.asJSON());
 		RaceService.awardChampionshipPoints(
 			new Map<Id, SObject>([select Id from Race__c]).keySet());
 	}
@@ -29,7 +29,7 @@ private class RaceServiceTest {
 	}
 	
 	@isTest static void testCSV() {
-		SeasonService.importSeasons(TestData.SEASONSDATA);
+		SeasonService.importSeasons(TestData.asJSON());
 		String csvOutput = RaceService.generateSummaryAsCSV(
 			new Map<Id, SObject>([select Id from Race__c]).keySet());
 		System.assertEquals('2013,Spain,,Lewis Hamilton,,\r\n', csvOutput);		
