@@ -4,6 +4,7 @@
         <members>Application</members>
         <members>ApplicationDomain</members>
         <members>ApplicationSelector</members>
+        <members>CalloutsSelector</members>
         <members>Cars</members>
         <members>CarsSelector</members>
         <members>ChampionshipPointsSelector</members>
@@ -122,6 +123,7 @@
         <members>RaceStandings</members>
         <members>RacingOverview</members>
         <members>defaultTokens</members>
+        <members>svgIcon</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -131,6 +133,9 @@
         <name>CustomApplication</name>
     </types>
     <types>
+        <members>Callout__mdt.ApexClassNamespacePrefix__c</members>
+        <members>Callout__mdt.ApexClass__c</members>
+        <members>Callout__mdt.InterfaceType__c</members>
         <members>Car__c.Weight__c</members>
         <members>ChampionshipPoint__mdt.PointsAwarded__c</members>
         <members>Contestant__c.Car__c</members>
@@ -173,6 +178,9 @@
         <name>CustomField</name>
     </types>
     <types>
+        <members>ComplianceFailuresFound</members>
+        <members>NotImplemented</members>
+        <members>UnableToVerifyCompliance</members>
         <members>fflib_security_error_field_not_insertable</members>
         <members>fflib_security_error_field_not_readable</members>
         <members>fflib_security_error_field_not_updateable</members>
@@ -203,6 +211,7 @@
         <name>CustomMetadata</name>
     </types>
     <types>
+        <members>Callout__mdt</members>
         <members>Car__c</members>
         <members>ChampionshipPoint__mdt</members>
         <members>Contestant__c</members>
@@ -231,9 +240,9 @@
     <types>
         <members>Car_Record_Page</members>
         <members>Driver_Record_Page</members>
+        <members>RaceManagementUtilityBar</members>
         <members>Race_Record_Page</members>
         <members>Team_Record_Page</members>
-        <members>RaceManagementUtilityBar</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -266,6 +275,13 @@
     </types>
     <types>
         <members>Contestant__c.OutOfRace</members>
+        <members>LogACall</members>
+        <members>NewCase</members>
+        <members>NewContact</members>
+        <members>NewEvent</members>
+        <members>NewLead</members>
+        <members>NewOpportunity</members>
+        <members>NewTask</members>
         <members>Race__c.AddDrivers</members>
         <name>QuickAction</name>
     </types>

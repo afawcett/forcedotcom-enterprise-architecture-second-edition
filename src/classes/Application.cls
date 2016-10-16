@@ -36,7 +36,10 @@ global class Application {
 					Race__c.SObjectType => Races.Constructor.class,
 					Car__c.SObjectType => Cars.Constructor.class,
 					Driver__c.SObjectType => Drivers.Constructor.class,
-					Contestant__c.SObjectType => Contestants.Constructor.class });                    
+					Contestant__c.SObjectType => Contestants.Constructor.class });
+					
+    // Create an instance of the Callouts factory
+    public static final CalloutFactory Callouts = new CalloutFactory();
            
     // Customised Service factory to support developer overrides via Custom Metadata (see Chapter 5)      
     private class ServiceFactory extends fflib_Application.ServiceFactory {
@@ -66,6 +69,24 @@ global class Application {
             // Default Service Factory returns mocked or registered default implementation
             return super.newInstance(serviceInterfaceType);    
         }        
+    }
+
+    /**
+     * Simple factory class around the Callouts Custom Metadata type 
+     **/    
+    public class CalloutFactory {
+        
+        private Map<Type, Type> calloutsByInterface = new Map<Type, Type>();
+        
+        /**
+         * Returns the registered implementation of the given interface
+         **/
+        public Object newInstance(Type interfaceType) {
+            if(calloutsByInterface==null) {
+                calloutsByInterface = new CalloutsSelector().selectAllCallouts();                
+            }
+            return calloutsByInterface.get(interfaceType);
+        }
     }
     
 	global enum ExceptionCode

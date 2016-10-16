@@ -42,40 +42,29 @@ public class Contestants extends ApplicationDomain {
 		}
 	}
 
-
     /**
      * Awards the applicable championship points to the contestants
      **/
 	public void awardChampionshipPoints(fflib_ISObjectUnitOfWork uow)
 	{
 		// Custom implementation configured by Developer X?
-		String customImplementationClassName =
-			Application__c.getInstance().IAwardChampionshipPointsApexClass__c;
-		if(customImplementationClassName!=null)
-		{
-			// Attempt to resolve the class?
-			Type customImplementationClass = 
-				// Namespace (managed) qualified e.g. devx.CustomCalc
-				Type.forName(customImplementationClassName); 
-			if(customImplementationClass==null)
-				customImplementationClass = 
-					// Local (unmanaged) namespace e.g. CustomCalc
-					Type.forName('',customImplementationClassName);
-			if(customImplementationClass!=null)
-			{
-				// Create instance of Developer X's class
-				ContestantService.IAwardChampionshipPoints customImplementation = 
-					(ContestantService.IAwardChampionshipPoints) 
-						customImplementationClass.newInstance(); 
-				// Invoke the custom method
-				customImplementation.calculate(Records);
-				// Mark dirty on behalf of Developer X
-				for(Contestant__c contestant : (List<Contestant__c>) Records)
-					uow.registerDirty(contestant);
+		Object registeredInterfaceImpl = 
+		    Application.Callouts.newInstance(ContestantService.IAwardChampionshipPoints.class);
+		if(registeredInterfaceImpl instanceof ContestantService.IAwardChampionshipPoints) {
+			// Cast the interface to call the calculate method
+			ContestantService.IAwardChampionshipPoints awardChampionshipPoints = 
+				(ContestantService.IAwardChampionshipPoints) registeredInterfaceImpl;
+			// Invoke the custom method from Developer X
+			awardChampionshipPoints.calculate(Records);
+			// Mark dirty on behalf of Developer X
+			for(Contestant__c contestant : (List<Contestant__c>) Records) {
+                uow.registerDirty(contestant);			    
 			}
 			return;
 		}
 
+        // Continue with standard implementation...
+        
         // Apply championship points to given contestants
         Map<Integer, ChampionshipPoint__mdt> pointsByTrackPosition = 
           new ChampionshipPointsSelector().selectAllByTrackPosition();      
