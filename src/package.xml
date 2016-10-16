@@ -195,6 +195,7 @@
         <name>CustomLabels</name>
     </types>
     <types>
+        <members>Callout.AwardChampionshipPoints</members>
         <members>ChampionshipPoint.TrackPosition1</members>
         <members>ChampionshipPoint.TrackPosition10</members>
         <members>ChampionshipPoint.TrackPosition2</members>
@@ -246,6 +247,7 @@
         <name>FlexiPage</name>
     </types>
     <types>
+        <members>Callout__mdt-Callouts Layout</members>
         <members>Car__c-Car Layout</members>
         <members>ChampionshipPoint__mdt-Championship Point Layout</members>
         <members>Contestant__c-Contestant Layout</members>
