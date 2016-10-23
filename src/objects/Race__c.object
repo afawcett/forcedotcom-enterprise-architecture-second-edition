@@ -161,6 +161,17 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Season__r.Year__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Year</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>    
+    <fields>
         <fullName>TotalDNFs__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -200,4 +211,16 @@
         <page>racesummaryascsv</page>
         <protected>false</protected>
     </webLinks>
+    <webLinks>
+        <fullName>RaceAnalysis</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Race Analysis</masterLabel>
+        <openType>noSidebar</openType>
+        <page>raceanalysis</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>    
 </CustomObject>

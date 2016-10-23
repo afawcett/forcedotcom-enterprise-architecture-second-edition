@@ -18,13 +18,27 @@ public with sharing class RaceService {
 	
     public static Map<Id, Integer> addDrivers(Map<Id, List<Id>> driversByRaceId) {
         return service().addDrivers(driversByRaceId);
-    }	
-
+    }
+    
+	public static List<AnalysisResult> analizeData(Set<String> raceNames)
+	{
+        return service().analizeData(raceNames);
+    }
+    
+    public static void processData(Set<Id> raceDataIds) {
+        service().processData(raceDataIds);    
+    }
+    
 	private static IRaceService service() {
 		return (IRaceService) Application.Service.newInstance(IRaceService.class);
 	}
 
 	public class RaceServiceException extends Exception {} 	
+
+	public class AnalysisResult 
+	{
+
+	}
 
 	public class ProvisionalResult {
 		public Integer racePosition {get; set;}

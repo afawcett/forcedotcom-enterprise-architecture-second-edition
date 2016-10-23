@@ -33,4 +33,16 @@ public class RaceServiceImplStub implements IRaceService {
 	public Map<Id, Integer> addDrivers(Map<Id, List<Id>> driversByRaceId) {
         throw new RaceService.RaceServiceException('Not implemented');	    
 	}
+	
+	public Id runProcessDataJob() {
+        throw new RaceService.RaceServiceException('Not implemented');	    
+	}    	
+	    
+	public void processData(Set<Id> raceDataIds) {
+        throw new RaceService.RaceServiceException('Not implemented');	    
+	}
+		    
+	public List<RaceService.AnalysisResult> analizeData(Set<String> raceNames) {
+        throw new RaceService.RaceServiceException('Not implemented');	    
+	}	
 }

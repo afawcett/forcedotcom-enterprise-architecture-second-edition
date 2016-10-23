@@ -9,4 +9,10 @@ public interface IRaceService {
 	String generateSummaryAsCSV(Set<Id> raceIds);
 	
 	Map<Id, Integer> addDrivers(Map<Id, List<Id>> driversByRaceId);
+	
+	Id runProcessDataJob();
+	
+	void processData(Set<Id> raceDataIds);
+	
+	List<RaceService.AnalysisResult> analizeData(Set<String> raceNames);
 }

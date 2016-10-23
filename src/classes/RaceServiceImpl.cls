@@ -72,4 +72,39 @@ public class RaceServiceImpl implements IRaceService {
         
         return null;
     }	
+    
+	public Id runProcessDataJob()
+	{
+		// TODO: Implement concurrency check and scope config (via custom setting)
+		return Database.executeBatch(new ProcessRaceDataJob(), 2000);	
+	}    
+    
+	public void processData(Set<Id> raceDataIds)
+	{
+		// Query Race Data records and update with Contestant relationship
+		fflib_ISObjectUnitOfWork uow = Application.UnitOfWork.newInstance();
+		for(RaceData__c raceData : 
+				(List<RaceData__c>)
+					Application.Selector.selectById(raceDataIds))
+		{
+			// Associate Race Data record with a Contestant via Unique Id
+			raceData.Contestant__r = 
+				new Contestant__c(
+					RaceDataId__c = 
+						Contestants.makeRaceDataId(
+							raceData.Year__c, 
+							raceData.RaceName__c, 
+							raceData.DriverId__c));
+			uow.registerDirty(raceData);
+		}
+		// Update records
+		uow.commitWork();
+	}
+        
+	public List<RaceService.AnalysisResult> analizeData(Set<String> raceNames)
+	{
+		List<RaceData__c> raceData = 
+			RaceDataSelector.newInstance().selectByRaceName(raceNames);			
+		return null;
+	}
 }
