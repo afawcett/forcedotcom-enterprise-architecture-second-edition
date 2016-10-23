@@ -83,8 +83,7 @@ public class Contestants extends ApplicationDomain {
 	/** 
 	 * Calculate the Contestants RaceDataId__c
 	 **/
-	public override void onBeforeInsert()
-	{
+	public override void onBeforeInsert() {
 		// Query Drivers related to Contestant records
 		Map<Id, Driver__c> driversById = 
 			new Map<Id, Driver__c>((List<Driver__c>)
@@ -95,21 +94,18 @@ public class Contestants extends ApplicationDomain {
 		Map<Id, Race__c> racesById = queryAssociatedRaces();
 
 		// Calculate each unique Contestants Race Data Id
-		for(Contestant__c contestant : (List<Contestant__c>) Records)
-		{		
+		for(Contestant__c contestant : (List<Contestant__c>) Records) {		
 			Race__c race = racesById.get(contestant.Race__c);
 			Driver__c driver = driversById.get(contestant.Driver__c);
 			contestant.RaceDataId__c = makeRaceDataId(race.Year__c, race.Name, driver.DriverId__c); 
 		}		
 	}
 
-	public static String makeRaceDataId(Decimal year, String raceName, String driverId)
-	{
+	public static String makeRaceDataId(Decimal year, String raceName, String driverId) {
 		return makeRaceDataId(String.valueOf(year), raceName, driverId);
 	}
 
-	public static String makeRaceDataId(String year, String raceName, String driverId)
-	{
+	public static String makeRaceDataId(String year, String raceName, String driverId) {
 		return year+'-'+raceName+'-'+driverId;
 	}
 

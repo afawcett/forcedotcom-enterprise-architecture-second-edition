@@ -21,6 +21,7 @@ public class RacesSelector extends ApplicationSelector {
 			Race__c.Location__c,
 			Race__c.Status__c,
 			Race__c.Season__c,
+			Race__c.Year__c,
 			Race__c.FastestLapBy__c,
 			Race__c.PollPositionLapTime__c,
 			Race__c.TotalDNFs__c,

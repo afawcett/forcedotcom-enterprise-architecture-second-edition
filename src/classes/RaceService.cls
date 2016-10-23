@@ -20,6 +20,10 @@ public with sharing class RaceService {
         return service().addDrivers(driversByRaceId);
     }
     
+    public static Id runProcessDataJob() {
+        return service().runProcessDataJob();
+    }
+    
 	public static List<AnalysisResult> analizeData(Set<String> raceNames)
 	{
         return service().analizeData(raceNames);

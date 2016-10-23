@@ -5,7 +5,8 @@ public class DriversSelector extends ApplicationSelector {
 			Driver__c.Id,
 			Driver__c.Name,
 			Driver__c.FIASuperLicense__c,
-			Driver__c.Team__c
+			Driver__c.Team__c,
+			Driver__c.DriverId__c
 		};
 	}
 

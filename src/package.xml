@@ -10,6 +10,8 @@
         <members>ChampionshipPointsSelector</members>
         <members>ComplianceCheckerComponent</members>
         <members>ComplianceController</members>
+        <members>ComplianceResource</members>
+        <members>ComplianceResource_v1_0</members>
         <members>ComplianceService</members>
         <members>ComplianceServiceTest</members>
         <members>ContestantController</members>
@@ -24,10 +26,15 @@
         <members>FLSDemoController</members>
         <members>IContestantsSelector</members>
         <members>IRaceService</members>
+        <members>LogService</members>
+        <members>NotificationService</members>
         <members>OutOfRaceController</members>
+        <members>ProcessRaceDataJob</members>
+        <members>RaceAnalysisController</members>
         <members>RaceCalendarComponentController</members>
         <members>RaceController</members>
         <members>RaceControllerTest</members>
+        <members>RaceDataSelector</members>
         <members>RaceResultsComponentController</members>
         <members>RaceResultsController</members>
         <members>RaceService</members>
@@ -52,6 +59,7 @@
         <members>Teams</members>
         <members>TeamsSelector</members>
         <members>TestData</members>
+        <members>UpdateStandingsAction</members>
         <members>fflib_ApexMocks</members>
         <members>fflib_ApexMocksTest</members>
         <members>fflib_ApexMocksUtils</members>
@@ -103,6 +111,7 @@
         <members>complianceteam</members>
         <members>flsdemo</members>
         <members>outofrace</members>
+        <members>raceanalysis</members>
         <members>racesummary</members>
         <members>racesummaryascsv</members>
         <name>ApexPage</name>
@@ -147,6 +156,7 @@
         <members>Contestant__c.Qualification1LapTime__c</members>
         <members>Contestant__c.Qualification2LapTime__c</members>
         <members>Contestant__c.Qualification3LapTime__c</members>
+        <members>Contestant__c.RaceDataID__c</members>
         <members>Contestant__c.RacePosition__c</members>
         <members>Contestant__c.RaceTime__c</members>
         <members>Contestant__c.Race__c</members>
@@ -159,7 +169,15 @@
         <members>Driver__c.ShortName__c</members>
         <members>Driver__c.Team__c</members>
         <members>Driver__c.TwitterHandle__c</members>
+        <members>RaceData__c.Contestant__c</members>
+        <members>RaceData__c.DriverId__c</members>
+        <members>RaceData__c.Lap__c</members>
+        <members>RaceData__c.RaceName__c</members>
         <members>RaceData__c.Race__c</members>
+        <members>RaceData__c.Sector__c</members>
+        <members>RaceData__c.Type__c</members>
+        <members>RaceData__c.Value__c</members>
+        <members>RaceData__c.Year__c</members>
         <members>Race__c.EndDate__c</members>
         <members>Race__c.FastestLapBy__c</members>
         <members>Race__c.Location__c</members>
@@ -168,6 +186,7 @@
         <members>Race__c.StartDate__c</members>
         <members>Race__c.Status__c</members>
         <members>Race__c.TotalDNFs__c</members>
+        <members>Race__c.Year__c</members>
         <members>Season__c.Current__c</members>
         <members>Season__c.Year__c</members>
         <members>Service__mdt.ApexClass__c</members>
@@ -297,6 +316,7 @@
         <members>Contestant__c.OutOfRace</members>
         <members>Driver__c.VerifyCompliance</members>
         <members>Race__c.DownloadSummary</members>
+        <members>Race__c.RaceAnalysis</members>
         <members>Team__c.VerifyCompliance</members>
         <name>WebLink</name>
     </types>

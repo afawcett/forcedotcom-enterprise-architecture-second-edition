@@ -1,14 +1,13 @@
-public class RaceAnalysisController
-{
+public class RaceAnalysisController {
+    
 	private ApexPages.StandardSetController standardSetController;
 
-	public RaceAnalysisController(ApexPages.StandardSetController standardSetController)
-	{
+	public RaceAnalysisController(ApexPages.StandardSetController standardSetController) {
 		this.standardSetController = standardSetController;	
 	}
 
-	public PageReference analyizeRaceData()
-	{
+	public PageReference analyizeRaceData() {
+	    
 		// Selected race names
 		Set<String> raceNames = new Set<String>();
 		for(Race__c selected : (List<Race__c>) standardSetController.getSelected())

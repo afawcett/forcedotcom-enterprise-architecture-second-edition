@@ -1,12 +1,10 @@
-public class RaceDataSelector extends fflib_SObjectSelector
-{
-	public static RaceDataSelector newInstance() 
-	{ 
+public class RaceDataSelector extends ApplicationSelector {
+    
+	public static RaceDataSelector newInstance() { 
 		return (RaceDataSelector) Application.Selector.newInstance(RaceData__c.SObjectType); 
 	}
 
-	public List<Schema.SObjectField> getSObjectFieldList()
-	{
+	public List<Schema.SObjectField> getSObjectFieldList() {
 		return new List<Schema.SObjectField> {
 				RaceData__c.Id,
 				RaceData__c.Name,
@@ -20,35 +18,23 @@ public class RaceDataSelector extends fflib_SObjectSelector
 			};
 	}
 
-	public Schema.SObjectType getSObjectType()
-	{
+	public Schema.SObjectType getSObjectType() {
 		return RaceData__c.sObjectType;
 	}
 
-	public List<RaceData__c> selectById(Set<ID> idSet)
-	{
+	public List<RaceData__c> selectById(Set<ID> idSet) {
 		return (List<RaceData__c>) selectSObjectsById(idSet);
 	}	
 
-	public List<RaceData__c> selectByRaceName(Set<String> raceNames)
-	{
-		assertIsAccessible();
-		return Database.query(
-			String.format('SELECT {0} FROM {1} WHERE RaceName__c in :raceNames ORDER BY {2}', 
-			new List<String>{getFieldListString(),getSObjectName(),getOrderBy()}));
+	public List<RaceData__c> selectByRaceName(Set<String> raceNames) {
+		return Database.query(newQueryFactory().setCondition('RaceName__c in :raceNames').toSOQL());
 	}	
 
-	public Database.QueryLocator selectAllQueryLocator()
-	{
-		assertIsAccessible();
-		return Database.getQueryLocator(
-			String.format('SELECT {0} FROM {1} ORDER BY {2}', 
-				new List<String>{getFieldListString(),getSObjectName(),getOrderBy()}));
+	public Database.QueryLocator selectAllQueryLocator() {
+		return Database.getQueryLocator(newQueryFactory().toSOQL());
 	}
 
-	public List<Analysis> selectAnaysisGroupByRaceName()
-	{
-		assertIsAccessible();
+	public List<Analysis> selectAnaysisGroupByRaceName() {
 		List<Analysis> raceAnalysis = new List<Analysis>();
 		for(AggregateResult result : 
 			[select 
@@ -57,13 +43,13 @@ public class RaceDataSelector extends fflib_SObjectSelector
 				MAX(Value__c) maxValue,
 				MIN(Value__c) minValue
 			 from RaceData__c
-			 group by RaceName__c, Type__c ])
-			raceAnalysis.add(new Analysis(result));
+			 group by RaceName__c, Type__c ]) {
+            raceAnalysis.add(new Analysis(result));			     
+        }
 		return raceAnalysis;
 	}
 
-	public class Analysis
-	{
+	public class Analysis {
 		private AggregateResult result;				
 		public String Race { 
 			get { return (String) result.get('raceName'); } }	
