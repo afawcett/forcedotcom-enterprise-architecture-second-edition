@@ -97,6 +97,14 @@ public virtual class fflib_SObjectUnitOfWork
 			delete objList;
 		}
 	}
+	
+	/**
+	 * Constructor required for Test.createStub
+	 **/
+	public fflib_SObjectUnitOfWork() {
+	    System.assert(Test.isRunningTest());
+	}
+	
 	/**
 	 * Constructs a new UnitOfWork to support work against the given object list
 	 *

@@ -1,4 +1,11 @@
 public class Contestants extends ApplicationDomain {
+    
+    /**
+     * Constructor required for Test.createStub
+     **/
+    public Contestants() {
+        super();
+    }
 
 	public Contestants(List<Contestant__c> contestants) {
 		super(contestants);
@@ -66,8 +73,10 @@ public class Contestants extends ApplicationDomain {
         // Continue with standard implementation...
         
         // Apply championship points to given contestants
+        ChampionshipPointsSelector pointsSelector = (ChampionshipPointsSelector) 
+            Application.Selector.newInstance(ChampionshipPoint__mdt.SObjectType); 
         Map<Integer, ChampionshipPoint__mdt> pointsByTrackPosition = 
-          new ChampionshipPointsSelector().selectAllByTrackPosition();      
+            pointsSelector.selectAllByTrackPosition();      
         for(Contestant__c contestant : (List<Contestant__c>) Records) {
             // Determine points to award for the given position
             ChampionshipPoint__mdt pointsForPosition = 

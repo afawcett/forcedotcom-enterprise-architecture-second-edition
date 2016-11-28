@@ -5,6 +5,10 @@
         <members>ApplicationDomain</members>
         <members>ApplicationSelector</members>
         <members>CalloutsSelector</members>
+        <members>Car</members>
+        <members>CarTest</members>
+        <members>CarTestApexMocksDemo</members>
+        <members>CarTestApexStubAPIDemo</members>
         <members>Cars</members>
         <members>CarsSelector</members>
         <members>ChampionshipPointsSelector</members>
@@ -21,10 +25,20 @@
         <members>Contestants</members>
         <members>ContestantsSelector</members>
         <members>ContestantsTest</members>
+        <members>Dashboard</members>
+        <members>DashboardTest</members>
+        <members>DashboardTestApexMocksDemo</members>
+        <members>DashboardTestApexStubAPIDemo</members>
+        <members>Display</members>
         <members>Drivers</members>
         <members>DriversSelector</members>
+        <members>Engine</members>
+        <members>EngineTest</members>
         <members>FLSDemoController</members>
         <members>IContestantsSelector</members>
+        <members>IDashboard</members>
+        <members>IDisplay</members>
+        <members>IEngine</members>
         <members>IRaceService</members>
         <members>LogService</members>
         <members>NotificationService</members>

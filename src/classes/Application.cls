@@ -14,7 +14,7 @@ global class Application {
     public static final fflib_Application.ServiceFactory Service = 
         new Application.ServiceFactory( 
             new Map<Type, Type> {
-                    IRaceService.class => RaceServiceImpl.class });
+                    RaceService.class => RaceServiceImpl.class });
                     
     // Configure and create the SelectorFactory for this Application
     public static final fflib_Application.SelectorFactory Selector = 
@@ -26,7 +26,8 @@ global class Application {
                     Car__c.SObjectType => CarsSelector.class,
                     Driver__c.SObjectType => DriversSelector.class,
                     Contestant__c.SObjectType => ContestantsSelector.class,
-                    RaceData__c.SObjectType => RaceDataSelector.class }); 
+                    RaceData__c.SObjectType => RaceDataSelector.class,
+                    ChampionshipPoint__mdt.SObjectType => ChampionshipPointsSelector.class }); 
                     
 	// Configure and create the DomainFactory for this Application
 	public static final fflib_Application.DomainFactory Domain = 

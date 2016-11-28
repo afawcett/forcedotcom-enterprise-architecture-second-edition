@@ -86,6 +86,13 @@ public virtual with sharing class fflib_SObjectDomain
 
 		TriggerEventByClass = new Map<Type, TriggerEvent>();
 	}
+
+    /**
+     * Constructor required for Test.createStub
+     **/
+    public fflib_SObjectDomain() {
+        System.assert(System.Test.isRunningTest());
+    }
 	
 	/**
 	 * Constructs the domain class with the data on which to apply the behaviour implemented within

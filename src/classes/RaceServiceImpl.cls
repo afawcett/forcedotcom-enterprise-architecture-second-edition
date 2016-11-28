@@ -13,13 +13,15 @@ public class RaceServiceImpl implements IRaceService {
         fflib_ISObjectUnitOfWork uow = Application.UnitOfWork.newInstance();
 
         // Query Races and contestants and bulkify list of all contestants
-        List<Contestant__c> contestants = new List<Contestant__c>();
-        for(Race__c race : new RacesSelector().selectByIdWithContestants(raceIds)) {
-            contestants.addAll(race.Contestants__r);            
+        RacesSelector racesSelector = (RacesSelector) Application.Selector.newInstance(Race__c.SObjectType);        
+        List<Contestant__c> contestantsList = new List<Contestant__c>();
+        for(Race__c race : racesSelector.selectByIdWithContestants(raceIds)) {
+            contestantsList.addAll(race.Contestants__r);            
         }
         
         // Delegate to Contestant Domain class
-        new Contestants(contestants).awardChampionshipPoints(uow);
+        Contestants contestants = (Contestants) Application.Domain.newInstance(contestantsList);
+        contestants.awardChampionshipPoints(uow);
 
         // Commit work
         uow.commitWork();

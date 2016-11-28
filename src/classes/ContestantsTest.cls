@@ -86,4 +86,33 @@ private class ContestantsTest
 		System.assertEquals(25, ((Contestant__c) contestants.Records[0]).ChampionshipPoints__c);
 		Test.stopTest();
 	}
+	
+	@IsTest
+	private static void whenAwardChampionshipPointsUowRegisterDirty() {
+	    
+        fflib_ApexMocks mocks = new fflib_ApexMocks();
+	    
+	    // Given
+        fflib_SObjectUnitOfWork mockUow = (fflib_SObjectUnitOfWork) mocks.factory(fflib_SObjectUnitOfWork.class);
+        Application.UnitOfWork.setMock(mockUow);            
+        Id testContestantId = fflib_IDGenerator.generate(Contestant__c.SObjectType);
+        List<Contestant__c> testContestants = 
+            new List<Contestant__c> { 
+                new Contestant__c ( 
+                    Id = testContestantId,
+                    RacePosition__c = 1 )};                    
+
+	    // When
+        Contestants contestants = new Contestants(testContestants);
+        contestants.awardChampionshipPoints(mockUow);
+	    
+	    // Then
+        ((fflib_SObjectUnitOfWork) 
+            mocks.verify(mockUow, 1)).registerDirty(
+                fflib_Match.sObjectWith(
+                    new Map<SObjectField, Object>{ 
+                        Contestant__c.Id => testContestantId,
+                        Contestant__c.RacePosition__c => 1, 
+                        Contestant__c.ChampionshipPoints__c => 25} ));	    
+	}
 }
