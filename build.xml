@@ -1,4 +1,8 @@
-<project name="FormulaForce" xmlns:sf="antlib:com.salesforce" basedir=".">
+<project name="FormulaForce" xmlns:sf="antlib:com.salesforce" basedir="."  default="deploy">
+	
+	<property name="sf.server" value="https://login.salesforce.com"/>
+	<import file="${basedir}/lib/exec_anon.xml"/> 
+	<import file="${basedir}/lib/undeploy.xml"/>
 
 	<!--  Downloaded from Salesforce Tools page under Setup -->
 	<typedef 
@@ -32,11 +36,29 @@
 	</target> 
 	
 	<!-- Deploy -->
-	<target name="deploy">
-    	<sf:deploy  
-        	username="${sf.username}"  
-        	password="${sf.password}"  
-        	deployRoot="${basedir}/src"/>  		
+	<target name="deploy" depends="undeploy">
+		<sf:deploy 
+	        username="${sf.username}" 
+	        password="${sf.password}" 
+	        serverurl="${sf.server}"
+	        runAllTests="true" 
+	        deployRoot="${basedir}/src"/>
 	</target>
+
+<target name="deploy.jenkins" depends="undeploy">
+  <sf:deploy 
+      username="${sf.username}" 
+      password="${sf.password}" 
+      serverurl="${sf.server}"
+      runAllTests="true"
+      deployRoot="${basedir}/src"/> 
+  <sf:deploy 
+      username="${sf.package.username}" 
+      password="${sf.package.password}" 
+      serverurl="${sf.server}"
+      checkOnly="true"
+      runAllTests="true"
+      deployRoot="${basedir}/src"/> 
+</target>
 		
 </project>
