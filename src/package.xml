@@ -295,13 +295,6 @@
     </types>
     <types>
         <members>Contestant__c.OutOfRace</members>
-        <members>LogACall</members>
-        <members>NewCase</members>
-        <members>NewContact</members>
-        <members>NewEvent</members>
-        <members>NewLead</members>
-        <members>NewOpportunity</members>
-        <members>NewTask</members>
         <members>Race__c.AddDrivers</members>
         <name>QuickAction</name>
     </types>
