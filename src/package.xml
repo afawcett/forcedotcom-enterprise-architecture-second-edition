@@ -10,6 +10,8 @@
         <members>ChampionshipPointsSelector</members>
         <members>ComplianceCheckerComponent</members>
         <members>ComplianceController</members>
+        <members>ComplianceResource</members>
+        <members>ComplianceResource_v1_0</members>
         <members>ComplianceService</members>
         <members>ComplianceServiceTest</members>
         <members>ContestantController</members>
@@ -52,6 +54,7 @@
         <members>Teams</members>
         <members>TeamsSelector</members>
         <members>TestData</members>
+        <members>UpdateStandingsAction</members>
         <members>fflib_ApexMocks</members>
         <members>fflib_ApexMocksTest</members>
         <members>fflib_ApexMocksUtils</members>
