@@ -211,12 +211,6 @@
         <name>FieldSet</name>
     </types>
     <types>
-        <members>Car_Record_Page</members>
-        <members>Driver_Record_Page</members>
-        <members>Team_Record_Page</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
         <members>Car__c-Car Layout</members>
         <members>ChampionshipPoint__mdt-Championship Point Layout</members>
         <members>Contestant__c-Contestant Layout</members>
