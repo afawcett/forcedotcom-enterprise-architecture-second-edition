@@ -24,7 +24,7 @@ public class Teams extends ApplicationDomain implements ComplianceService.ICompl
 		// Verify associated Drivers compliance
 		teamVerifyResults.addAll(
 			new Drivers(
-				new DriversSelector().selectDriversByTeam(
+				new DriversSelector().selectByTeam(
 					new Map<Id, SObject>(Records).keySet())).verifyCompliance());
 
 		return teamVerifyResults;		

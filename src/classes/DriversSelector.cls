@@ -15,11 +15,11 @@ public class DriversSelector extends fflib_SObjectSelector
 		return Driver__c.sObjectType;
 	}
 
-	public List<Driver__c> selectDriversByTeam(Set<Id> teamIds)
-	{
-		assertIsAccessible();
-		return Database.query(
-			String.format('SELECT {0} FROM {1} WHERE Team__c in :teamIds ORDER BY {2}', 
-			new List<String>{getFieldListString(),getSObjectName(),getOrderBy()}));
+	public List<Driver__c> selectByTeam(Set<Id> teamIds) {
+		return (List<Driver__c>)
+			Database.query(
+				newQueryFactory().
+					setCondition('Team__c in :teamIds').
+					toSOQL());
 	}
 }

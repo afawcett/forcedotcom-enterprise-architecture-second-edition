@@ -200,15 +200,15 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>compliancecar</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>compliancedriver</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>complianceteam</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <tabSettings>
         <tab>Car__c</tab>
