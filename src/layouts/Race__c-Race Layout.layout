@@ -100,7 +100,7 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>ff2w17__Race__c.AddDrivers</actionName>
+            <actionName>Race__c.AddDrivers</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>0</sortOrder>
         </platformActionListItems>
@@ -200,7 +200,7 @@
             <sortOrder>19</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>ff2w17__DownloadSummary</actionName>
+            <actionName>DownloadSummary</actionName>
             <actionType>CustomButton</actionType>
             <sortOrder>20</sortOrder>
         </platformActionListItems>

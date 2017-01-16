@@ -132,7 +132,6 @@
         <members>RaceStandings</members>
         <members>RacingOverview</members>
         <members>defaultTokens</members>
-        <members>svgIcon</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
